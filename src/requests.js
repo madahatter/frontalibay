@@ -1,5 +1,5 @@
 
-function login(email, password) {
+function login(email, password, cb) {
     return fetch('/login', {
         method: 'POST', 
         body: JSON.stringify({
@@ -7,11 +7,11 @@ function login(email, password) {
             password
         })
     })
-    .then(e => e.json())
+    .then(res => res.json())
 }
 
 function register(email, password, name) {
-    return fetch('/register', {
+    return fetch('/registerUser', {
         method: 'POST',
         body: JSON.stringify({
             email,
@@ -19,22 +19,22 @@ function register(email, password, name) {
             name
         })
     })
-    .then(e => e.json())
+    .then(res => res.json())
 }
 
 function featuredImages() {
     return fetch('/featuredImages', {
         method: 'GET'
     })
-    .then(e => e.json())
+    .then(res => res.json())
 }
 
 function search(searchTerm) {
     return fetch('/search?term=' + searchTerm)
-    .then(e => e.json())
+    .then(res => res.json())
 }
 
-function createListing(email, title, descripton, image, category) {
+function createListing(email, title, description, image, category) {
     return fetch('/createListing', {
         method: 'POST', 
         body: JSON.stringify({
@@ -45,7 +45,7 @@ function createListing(email, title, descripton, image, category) {
             category
         })
     })
-    .then(e => e.json())
+    .then(res => res.json())
 }
 
 function buy(email, itemId) {
@@ -56,7 +56,7 @@ function buy(email, itemId) {
             itemId
         })
     })
-    .then(e => e.json())
+    .then(res => res.json())
 }
 
 function addToCart(email, itemId) {
@@ -67,7 +67,7 @@ function addToCart(email, itemId) {
             itemId
         })
     })
-    .then(e => e.json())
+    .then(res => res.json())
 }
 
 function removeFromCart(email, itemId) {
@@ -78,7 +78,6 @@ function removeFromCart(email, itemId) {
             itemId
         })
     })
-    .then(e => e.json())
+    .then(res => res.json())
 }
-
-export { login, register, createListing, featuredImages, createListing, buy, addToCart, removeFromCart };
+export { login, register, createListing, featuredImages, buy, addToCart, removeFromCart };
