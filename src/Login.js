@@ -1,21 +1,22 @@
-import React, {Component} from 'react';
-import { Route, BrowserRouter, Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, BrowserRouter, Redirect, Link } from 'react-router-dom';
 import { login } from './requests.js';
 
-class Login extends React.Component{
-  constructor(){
+class Login extends React.Component {
+  constructor() {
     super()
     this.state = {
       emailInput: "",
       passwordInput: "",
+      redirect  : false
     }
   }
   handleEmail = (event) => {
-    this.setState({emailInput: event.target.value})
+    this.setState({ emailInput: event.target.value })
   }
 
   handlePassword = (event) => {
-    this.setState({passwordInput: event.target.value})
+    this.setState({ passwordInput: event.target.value })
   }
 
   handleSubmit = event => {
@@ -24,25 +25,37 @@ class Login extends React.Component{
       this.state.emailInput,
       this.state.passwordInput)
       .then(
-      res => { if(res.success) {this.props.setEmail(this.state.emailInput)}})
+        res => {
+          if (res.success) {
+            this.props.setEmail(this.state.emailInput)
+            this.setState({ emailInput: "", passwordInput: "" , redirect : true})
+          }
+        })
   }
-  render(){
-    return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <input type="text" placeholder="email" onChange={this.handleEmail}></input>
-          </div>
+  render() {
+    if(this.state.redirect === true){
+      return (
+        <Redirect to="/"/>
+      )
+    }
+    if(this.state.redirect === false){
+      return (
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              <input type="text" placeholder="email" onChange={this.handleEmail}></input>
+            </div>
             <input type="password" placeholder="Password" onChange={this.handlePassword}></input>
-          <div>
-            <input type="submit"/>
-          </div>
-          <Route>
-            <Link to={"/"}> Link to homepage </Link>
-          </Route>
-        </form>
-      </div>
-    )
+            <div>
+              <input type="submit" />
+            </div>
+            <Route>
+              <Link to={"/"}> Link to homepage </Link>
+            </Route>
+          </form>
+        </div>
+      )
+    }
   }
 }
 

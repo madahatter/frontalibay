@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter, Link } from 'react-router-dom'
+import { Route, BrowserRouter, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './Login';
-import Register from './Register'
+import { Login } from './Login';
+import { Register } from './Register';
 import './App.css';
 import {
   Jumbotron,
@@ -52,14 +52,7 @@ export default class Example extends React.Component {
                   <h1>Jumbotron</h1>
                   <div>
                     <Row>
-                      <Col>img1</Col>
-                      <Col>img2</Col>
-                      <Col>img3</Col>
-                    </Row>
-                    <Row>
-                      <Col>img4</Col>
-                      <Col>img5</Col>
-                      <Col>img6</Col>
+                      <Col><img src="https://picsum.photos/700/400"/></Col>
                     </Row>
                   </div>
                 </Col>

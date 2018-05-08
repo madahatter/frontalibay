@@ -1,26 +1,27 @@
-import React, {Component} from 'react';
-import { Route, BrowserRouter, Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, BrowserRouter, Redirect, Link } from 'react-router-dom';
 import { register } from './requests.js';
 
-class Register extends React.Component{
+class Register extends React.Component {
   constructor() {
     super()
     this.state = {
       emailInput: "",
       nameInput: "",
       passwordInput: "",
+      redirect  : false
     }
   }
   handleEmail = (event) => {
-    this.setState({emailInput: event.target.value});
+    this.setState({ emailInput: event.target.value });
   }
 
   handleName = (event) => {
-    this.setState({nameInput: event.target.value});
+    this.setState({ nameInput: event.target.value });
   }
 
   handlePassword = (event) => {
-    this.setState({passwordInput: event.target.value});
+    this.setState({ passwordInput: event.target.value });
   }
   handleSubmit = (event) => {
     event.preventDefault();
@@ -28,30 +29,37 @@ class Register extends React.Component{
       this.state.emailInput,
       this.state.passwordInput,
       this.state.nameInput)
+      .then(this.setState({ emailInput: "", nameInput: "", passwordInput: "" }))
   }
 
-  render(){
-    return(
+  render() {
+    if(this.state.redirect === true){
+      return (
+        <Redirect to="/"/>
+      )
+    }
+    if(this.state.redirect === false){
+      return (
       <div>
         <form onSubmit={this.handleSubmit}>
-        <div>
-          <input placeholder="Email" type="email" onChange={this.handleEmail}></input>
-        </div>
-        <div>
-          <input placeholder="Name" type="text" onChange={this.handleName}></input>
-        </div>
-        <div>
-          <input placeholder="Password" type="password" onChange={this.handlePassword}></input>
-        </div>
-        <div>
-          <input type="submit"/>
-        </div>
+          <div>
+            <input placeholder="Email" type="email" onChange={this.handleEmail}></input>
+          </div>
+          <div>
+            <input placeholder="Name" type="text" onChange={this.handleName}></input>
+          </div>
+          <div>
+            <input placeholder="Password" type="password" onChange={this.handlePassword}></input>
+          </div>
+          <div>
+            <input type="submit" />
+          </div>
         </form>
         <Route>
           <Link to={"/"}> Link to homepage </Link>
         </Route>
       </div>
-    )
+    )}
   }
 }
 
