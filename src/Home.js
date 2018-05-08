@@ -61,11 +61,6 @@ export default class Example extends React.Component {
                       <Col>img5</Col>
                       <Col>img6</Col>
                     </Row>
-                    <Row>
-                      <Col>img7</Col>
-                      <Col>img8</Col>
-                      <Col>img9</Col>
-                    </Row>
                   </div>
                 </Col>
               </Row>
