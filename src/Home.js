@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './Login';
-import Register from './Register'
 import './App.css';
 import {
   Jumbotron,
   Button,
   Container,
   Row,
-  Col,
-  NavbarBrand,
-  Navbar
+  Col
 } from 'reactstrap';
 
 export default class Example extends React.Component {
@@ -29,6 +25,9 @@ export default class Example extends React.Component {
             <li className="navbar">
               <input type="submit" />
             </li>
+            <li>
+              <Link to={'/cart'}> Cart </Link>
+            </li>
             <li className="navbar">
               <Link to={"/login"}> Login </Link>
             </li>
@@ -39,7 +38,7 @@ export default class Example extends React.Component {
           <div>
             <Container>
               <Row>
-                <Col xs={6} md={4}>
+                <Col xs={6} md={2}>
                   <h4>Categories</h4>
                   <ul>
                     <li>Phones and Accessories</li>
@@ -48,7 +47,7 @@ export default class Example extends React.Component {
                     <li>Cars</li>
                   </ul>
                 </Col>
-                <Col xs={12} md={8}>
+                <Col xs={12} md={10}>
                   <h1>Jumbotron</h1>
                   <div>
                     <Row>
