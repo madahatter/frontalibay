@@ -5,6 +5,9 @@ export default class Cart extends React.Component{
     return(
       <div>
         <h1>Cart Items</h1>
+        <div>
+          {}
+        </div>
       </div>
     )
   }

@@ -7,7 +7,8 @@ import {
   Button,
   Container,
   Row,
-  Col
+  Col,
+  Collapse
 } from 'reactstrap';
 
 export default class Example extends React.Component {
@@ -18,7 +19,7 @@ export default class Example extends React.Component {
           <ul>
             <li className="navbar">
               Alibay
-              </li>
+            </li>
             <li className="navbar">
               <input type="text"></input>
             </li>
@@ -32,33 +33,31 @@ export default class Example extends React.Component {
               <Link to={"/login"}> Login </Link>
             </li>
             <li className="navbar">
-              <Link to={"/register"}> Register </Link>
+              <Link to="/register"> Register </Link>
             </li>
           </ul>
           <div>
             <Container>
               <Row>
-                <Col xs={6} md={2}>
+                <Col xs={12} md={2}>
                   <h4>Categories</h4>
-                  <ul>
-                    <li>Phones and Accessories</li>
-                    <li>Jewelry and Watches</li>
-                    <li>Consumer Electronics</li>
-                    <li>Cars</li>
-                  </ul>
+                  <div>Phones and Accessories</div>
+                  <div>Jewelry and Watches</div>
+                  <div>Consumer Electronics</div>
+                  <div>Cars</div>
                 </Col>
                 <Col xs={12} md={10}>
                   <h1>Jumbotron</h1>
                   <div>
                     <Row>
-                      <Col>img1</Col>
-                      <Col>img2</Col>
-                      <Col>img3</Col>
+                      <Col xs={12} md={2}>img1</Col>
+                      <Col xs={12} md={2}>img2</Col>
+                      <Col xs={12} md={2}>img3</Col>
                     </Row>
                     <Row>
-                      <Col>img4</Col>
-                      <Col>img5</Col>
-                      <Col>img6</Col>
+                      <Col xs={12} md={2}>img4</Col>
+                      <Col xs={12} md={2}>img5</Col>
+                      <Col xs={12} md={2}>img6</Col>
                     </Row>
                   </div>
                 </Col>
