@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter, Link } from 'react-router-dom'
+import { Route, Redirect, BrowserRouter, Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Home'
 import Login from './Login';
@@ -9,48 +9,55 @@ import Seller from './Seller'
 import SearchedItems from './SearchedItems'
 import './App.css';
 
-// Render Home Page
-let renderHome = routerData => {
-  return (<Home />)
-}
+export default class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      email: "",
+      name: "",
 
-// Render Login Page
-let renderLogin = routerData => {
-  return (<Login />)
-}
+    }
+  }
 
-// Render Register Page
-let renderRegister = routerData => {
-  return (<Register />)
-}
+  setEmail = (email) => {
+    this.setState({ email })
+  }
 
-// Render Cart
-let renderCart = routerData => {
-  return(<Cart />)
-}
+  renderHome = routerData => {
+    return (<Home email={this.state.email} name={this.state.name}/>)
+  }
 
-// Render Seller info's page
-let renderSellerInfo = routerData => {
-  return(<Seller/>)
-} 
+  renderLogin = routerData => {
+    return (<Login setEmail={this.setEmail} />)
+  }
 
-// Render SearchedItems' list page
-let renderSearchedItems = routerData => {
-  return(<SearchedItems/>)
-}
+  renderRegister = routerData => {
+    return (<Register />)
+  }
 
-export default class Example extends React.Component {
+  renderCart = () => {
+    return (<Cart />)
+  }
+
+  renderSellerInfo = () => {
+    return (<Seller />)
+  }
+  renderSearchedItems = () => {
+    return (<SearchedItems />)
+  }
+
+
   render() {
     return (
       <div>
         <BrowserRouter>
         <div>
-          <Route exact path='/' render={renderHome} />
-          <Route exact path='/login' render={renderLogin} />
-          <Route exact path='/register' render={renderRegister} />
-          <Route exact path='/cart' render={renderCart} />
-          <Route exact path='/sellerinfo' render={renderSellerInfo} />
-          <Route exact path='/searcheditems' render={renderSearchedItems} />
+          <Route exact path='/' render={this.renderHome} />
+          <Route exact path='/login' render={this.renderLogin} />
+          <Route exact path='/register' render={this.renderRegister} />
+          <Route exact path='/cart' render={this.renderCart} />
+          <Route exact path='/sellerinfo' render={this.renderSellerInfo} />
+          <Route exact path='/searcheditems' render={this.renderSearchedItems} />
         </div>
         </BrowserRouter>
       </div >

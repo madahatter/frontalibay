@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter, Link } from 'react-router-dom'
+import { Route, BrowserRouter, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Login } from './Login';
+import { Register } from './Register';
+import Navbar from './Navbar.js';
 import './App.css';
 import {
   Jumbotron,
@@ -15,7 +18,9 @@ export default class Example extends React.Component {
   render() {
     return (
       <div>
+        <Navbar email={this.props.email} name={this.props.name}/>
         <div>
+<<<<<<< HEAD
           <ul>
             <li className="navbar">
               Alibay
@@ -64,6 +69,29 @@ export default class Example extends React.Component {
               </Row>
             </Container>
           </div>
+=======
+          <Container>
+            <Row>
+              <Col xs={6} md={2}>
+                <h4>Categories</h4>
+                <ul>
+                  <li>Phones and Accessories</li>
+                  <li>Jewelry and Watches</li>
+                  <li>Consumer Electronics</li>
+                  <li>Cars</li>
+                </ul>
+              </Col>
+              <Col xs={12} md={10}>
+                <h1>Jumbotron</h1>
+                <div>
+                  <Row>
+                    <Col><img src="https://picsum.photos/700/400" /></Col>
+                  </Row>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+>>>>>>> 67bf31e983ac906388493de0f5ede60f62f4daab
         </div>
       </div>
     );
