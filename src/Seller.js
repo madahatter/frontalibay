@@ -9,10 +9,7 @@ export default class Seller extends React.Component {
     return (
       <div>
         <Row>
-          <Col xs={6} md={2}>
-           
-          </Col>
-          <Col xs={12} md={4}>
+          <Col xs={12} md={6}>
             <h1>Seller' Information</h1>
             Lorem ipsum dolor sit amet, platea fermentum sunt fusce, metus sit sed elit,
             amet dapibus, bibendum ullamcorper ante tristique, expedita condimentum tellus fames sit.
