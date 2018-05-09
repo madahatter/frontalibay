@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect, BrowserRouter, Link } from 'react-router-dom'
+import { Route, Redirect, BrowserRouter, Link, withRouter } from 'react-router-dom'
 import pathToRegexp from 'path-to-regexp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -20,7 +20,7 @@ import ItemDetails from './ItemDetails';
 import './App.css';
 
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -34,7 +34,7 @@ export default class App extends React.Component {
     this.setState({ email, name })
   }
 
-  renderHome = routerData => {
+  renderHome = () => {
     return (<Home email={this.state.email} name={this.state.name} setSearchResults={this.setSearchResults} />)
   }
 
@@ -42,7 +42,7 @@ export default class App extends React.Component {
     return (<Login setEmail={this.setEmail} name={this.state.name} />)
   }
 
-  renderRegister = routerData => {
+  renderRegister = () => {
     return (<Register />)
   }
 
@@ -54,11 +54,11 @@ export default class App extends React.Component {
     return (<Seller />)
   }
 
-  renderSearchedItems = (routerData) => {
+  renderSearchedItems = () => {
     return (<SearchedItems searchResults={this.state.searchResults} />)
   }
 
-  renderNavbar = (routerData) => {
+  renderNavbar = () => {
     return <Navbar email={this.state.email} name={this.state.name} search={this.search}/>;
   }
 
@@ -69,12 +69,12 @@ export default class App extends React.Component {
   setSearchResults = (results) => {
     this.setState({ searchResults: results });
   }
-  search = (searchTerm, routerData) => {
+  search = (searchTerm) => {
     search(searchTerm)
     .then(res => {
         console.log(res);
         this.setSearchResults(res);
-        if(routerData.location.pathname !== '/searcheditems') routerData.history.push('/searcheditems');
+        if(this.props.location.pathname !== '/searcheditems') this.props.history.push('/searcheditems');
     });
   }
   renderItemDetails = () => {
@@ -85,7 +85,6 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
           <Container>
             <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderNavbar} />
             <Row>
@@ -103,8 +102,9 @@ export default class App extends React.Component {
               </Col>
             </Row>
           </Container>
-        </BrowserRouter>
       </div >
     );
   }
 }
+
+export default withRouter(App);

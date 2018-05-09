@@ -26,8 +26,6 @@ class Navbar extends React.Component {
                         <input type="submit" />
                     </form>
                 </div>
-
-                {this.props.email !== '' && <li>{this.props.email}</li>}
                 {this.props.name !== '' && <li>{this.props.name}</li>}
                 <div>
                     <Link to={'/cart'}> Cart </Link>

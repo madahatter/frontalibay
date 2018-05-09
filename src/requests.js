@@ -29,10 +29,10 @@ function featuredImages() {
     .then(res => res.json())
 }
 
-function search(searchTerm) {
+function search(searchTerm, category = false) {
     let terms = searchTerm.split(" ");
     
-    console.log('/search?terms=' + JSON.stringify(terms))
+    console.log(`/search?terms=${terms}&category=${category}`)
     return fetch('/search?terms=' + terms)
     .then(res => res.json())
 }

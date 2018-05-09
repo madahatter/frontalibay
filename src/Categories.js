@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class Categories extends React.Component {
   handleClick = (searchTerm) => {
-    this.props.search(searchTerm, this.props.routerData);
+    this.props.search(searchTerm, true);
   }
   render() {
     return (
