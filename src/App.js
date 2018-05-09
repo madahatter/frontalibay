@@ -7,6 +7,7 @@ import Register from './Register'
 import Cart from './Cart'
 import Seller from './Seller'
 import SearchedItems from './SearchedItems'
+import ItemDetails from './ItemDetails'
 import './App.css';
 
 export default class App extends React.Component {
@@ -15,7 +16,6 @@ export default class App extends React.Component {
     this.state = {
       email: "",
       name: "",
-
     }
   }
 
@@ -42,8 +42,13 @@ export default class App extends React.Component {
   renderSellerInfo = () => {
     return (<Seller />)
   }
+
   renderSearchedItems = () => {
     return (<SearchedItems />)
+  }
+
+  renderItemDetails = () => {
+    return(<ItemDetails/>)
   }
 
 
@@ -58,6 +63,7 @@ export default class App extends React.Component {
           <Route exact path='/cart' render={this.renderCart} />
           <Route exact path='/sellerinfo' render={this.renderSellerInfo} />
           <Route exact path='/searcheditems' render={this.renderSearchedItems} />
+          <Route exact path='/itemdetails' render={this.renderItemDetails} />
         </div>
         </BrowserRouter>
       </div >

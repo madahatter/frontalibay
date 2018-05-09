@@ -56,7 +56,7 @@ class Register extends React.Component {
           </div>
         </form>
         <Route>
-          <Link to={"/"}> Link to homepage </Link>
+          <Link to="/"> Link to homepage </Link>
         </Route>
       </div>
     )}

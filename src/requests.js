@@ -80,4 +80,4 @@ function removeFromCart(email, itemId) {
     })
     .then(res => res.json())
 }
-export { login, register, createListing, featuredImages, buy, addToCart, removeFromCart };
+export { login, register, createListing, search, featuredImages, buy, addToCart, removeFromCart };

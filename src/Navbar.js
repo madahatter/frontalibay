@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Navbar extends React.Component {
+let typedItem = ''
+
+class NavBar extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      userInputItem: ''
+    }
+  }
+
   render() {
     return (
       <div>
         <ul>
           <li className="navbar">
             Alibay
-                    </li>
-          <li className="navbar">
-            <input type="text"></input>
           </li>
           <li className="navbar">
-            <input type="submit" />
+            <form>
+              <li>
+                <input type="text" value={this.state.userInputItem} onChange={this.handleChange}></input>
+              </li>
+              <li>
+                <input type="submit" />
+              </li>
+            </form>
           </li>
           {this.props.email !== '' && <li>{this.props.email}</li>}
           <li>
@@ -31,4 +44,4 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+export default NavBar;
