@@ -1,11 +1,29 @@
 .navbar{
-  display: inline
+  display: flex;
+  align-items: center;
+}
+
+.navSearch {
+  flex: 1;
+}
+
+.navSearch > form {
+  display: flex;
+}
+
+.navSearch input[type="text"] {
+  flex: 1;
+}
+
+.navbar > div {
+  padding: 10px;
 }
 
 ul{
   list-style-type: none
 }
 
-.inline {
-  display: inline;
+img{
+  max-width: 100%;
+  height: auto;
 }

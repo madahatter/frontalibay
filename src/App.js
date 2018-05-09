@@ -2,13 +2,21 @@ import React, { Component } from 'react';
 import { Route, Redirect, BrowserRouter, Link } from 'react-router-dom'
 import pathToRegexp from 'path-to-regexp';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './Home'
+import {
+  Container,
+  Row,
+  Col,
+} from 'reactstrap';
+import { search } from './requests.js';
+import Home from './Home';
 import Login from './Login';
-import Register from './Register'
-import Cart from './Cart'
-import Seller from './Seller'
-import SearchedItems from './SearchedItems'
-import Navbar from './Navbar.js'
+import Register from './Register';
+import Cart from './Cart';
+import Seller from './Seller';
+import SearchedItems from './SearchedItems';
+import Navbar from './Navbar.js';
+import Categories from './Categories.js';
+import ItemDetails from './ItemDetails';
 import './App.css';
 
 
@@ -27,7 +35,7 @@ export default class App extends React.Component {
   }
 
   renderHome = routerData => {
-    return (<Home email={this.state.email} name={this.state.name} setSearchResults={this.setSearchResults}/>)
+    return (<Home email={this.state.email} name={this.state.name} setSearchResults={this.setSearchResults} />)
   }
 
   renderLogin = routerData => {
@@ -45,33 +53,56 @@ export default class App extends React.Component {
   renderSellerInfo = () => {
     return (<Seller />)
   }
+
   renderSearchedItems = (routerData) => {
     return (<SearchedItems searchResults={this.state.searchResults} />)
   }
+
   renderNavbar = (routerData) => {
-    return <Navbar email={this.state.email} name={this.state.name} setSearchResults={this.setSearchResults} routerData={routerData} />;
+    return <Navbar email={this.state.email} name={this.state.name} search={this.search}/>;
   }
-  setSearchResults= (results) => {
-    this.setState({searchResults: results});
+
+  renderCategories = (routerData) => {
+    return <Categories search={this.search} routerData={routerData}/>
   }
+
+  setSearchResults = (results) => {
+    this.setState({ searchResults: results });
+  }
+  search = (searchTerm, routerData) => {
+    search(searchTerm)
+    .then(res => {
+        console.log(res);
+        this.setSearchResults(res);
+        if(routerData.location.pathname !== '/searcheditems') routerData.history.push('/searcheditems');
+    });
+  }
+  renderItemDetails = () => {
+    return (<ItemDetails />)
+  }
+
 
   render() {
     return (
       <div>
         <BrowserRouter>
-        <div>
-            <div name="header">
-            </div>
-            <div name="body">
-              <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderNavbar} />
-              <Route exact path='/' render={this.renderHome} />
-              <Route exact path='/login' render={this.renderLogin} />
-              <Route exact path='/register' render={this.renderRegister} />
-              <Route exact path='/cart' render={this.renderCart} />
-              <Route exact path='/sellerinfo' render={this.renderSellerInfo} />
-              <Route exact path='/searcheditems' render={this.renderSearchedItems} />
-            </div>
-          </div>
+          <Container>
+            <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderNavbar} />
+            <Row>
+              <Col xs={6} md={2}>
+                <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderCategories} />
+              </Col>
+              <Col xs={12} md={10}>
+                <Route exact path='/' render={this.renderHome} />
+                <Route exact path='/login' render={this.renderLogin} />
+                <Route exact path='/register' render={this.renderRegister} />
+                <Route exact path='/cart' render={this.renderCart} />
+                <Route exact path='/sellerinfo' render={this.renderSellerInfo} />
+                <Route exact path='/searcheditems' render={this.renderSearchedItems} />
+                <Route exact path='/itemdetails' render={this.renderItemDetails} />
+              </Col>
+            </Row>
+          </Container>
         </BrowserRouter>
       </div >
     );

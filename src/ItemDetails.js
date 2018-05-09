@@ -1,19 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import Navbar from './Navbar';
+import Categories from './Categories'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
-
-export default class Seller extends React.Component {
+export default class ItemDetails extends React.Component {
+  constructor() {
+    super();
+  }
   render() {
     return (
       <div>
+        <Navbar email={this.props.email} name={this.props.name} />
         <Row>
           <Col xs={6} md={2}>
-           
+            <Categories/>
+          </Col>
+          <Col xs={6} md={4}>
+            <img src="https://picsum.photos/700/400" />
           </Col>
           <Col xs={12} md={4}>
-            <h1>Seller' Information</h1>
             Lorem ipsum dolor sit amet, platea fermentum sunt fusce, metus sit sed elit,
             amet dapibus, bibendum ullamcorper ante tristique, expedita condimentum tellus fames sit.
             Fusce orci sed est, quis proin arcu, vel mi in sit a tellus. Vel quisque egestas sed nullam.
@@ -22,15 +29,20 @@ export default class Seller extends React.Component {
             enim justo nibh dolor. Phasellus risus eros id. Lectus magna quam, nec vestibulum leo ultrices quam,
             pede taciti et odio bibendum nullam, eget enim, dui amet scelerisque qui in arcu aliquam.
           </Col>
-          <Col xs={12} md={4}>
-            <h1>List of seller's items</h1>
-          </Col>
         </Row>
         <Row>
           <Col>
             <Button>
+              <Link to='/sellerinfo'> Link to Seller's page </Link>
+            </Button>
+          </Col>
+          <Col>
+            <Button>
               <Link to='/'> Link to homepage </Link>
             </Button>
+          </Col>
+          <Col>
+            <Button> Add to cart</Button>
           </Col>
         </Row>
       </div>
