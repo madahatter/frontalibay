@@ -26,10 +26,11 @@ class Login extends React.Component {
       this.state.passwordInput)
       .then(
         res => {
-          if (res.success) {
+          console.log(res)
+          // if (res.success) {
             this.props.setEmail(this.state.emailInput)
             this.setState({ emailInput: "", passwordInput: "" , redirect : true})
-          }
+          // }
         })
   }
   render() {
@@ -43,7 +44,7 @@ class Login extends React.Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <div>
-              <input type="text" placeholder="email" onChange={this.handleEmail}></input>
+              <input type="text" placeholder="Email" onChange={this.handleEmail}></input>
             </div>
             <input type="password" placeholder="Password" onChange={this.handlePassword}></input>
             <div>

@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Home'
 import Login from './Login';
 import Register from './Register'
+import Cart from './Cart'
+import Seller from './Seller'
+import SearchedItems from './SearchedItems'
 import './App.css';
 
 export default class App extends React.Component {
@@ -15,8 +18,13 @@ export default class App extends React.Component {
 
     }
   }
+
   setEmail = (email) => {
     this.setState({ email })
+  }
+
+  renderHome = routerData => {
+    return (<Home email={this.state.email} name={this.state.name}/>)
   }
 
   renderLogin = routerData => {
@@ -27,22 +35,32 @@ export default class App extends React.Component {
     return (<Register />)
   }
 
-  renderHome = routerData => {
-    return (<Home />)
+  renderCart = () => {
+    return (<Cart />)
   }
+
+  renderSellerInfo = () => {
+    return (<Seller />)
+  }
+  renderSearchedItems = () => {
+    return (<SearchedItems />)
+  }
+
 
   render() {
     return (
       <div>
         <BrowserRouter>
-          <div>
-            <Route exact path='/login' render={this.renderLogin} />
-            {/* <Route exact path='/register' render={this.renderRegister} /> */}
-            <Route exact path='/' render={this.renderHome} />
-          </div>
+        <div>
+          <Route exact path='/' render={this.renderHome} />
+          <Route exact path='/login' render={this.renderLogin} />
+          <Route exact path='/register' render={this.renderRegister} />
+          <Route exact path='/cart' render={this.renderCart} />
+          <Route exact path='/sellerinfo' render={this.renderSellerInfo} />
+          <Route exact path='/searcheditems' render={this.renderSearchedItems} />
+        </div>
         </BrowserRouter>
       </div >
     );
   }
-
 }
