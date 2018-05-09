@@ -1,7 +1,27 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { search } from './requests.js';
 
 class Navbar extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            searchInput: "",
+        }
+    }
+    handleSubmit = (event) => {
+        event.preventDefault();
+        search(this.state.searchInput)
+        .then(res => {
+            console.log(res);
+            this.props.setSearchResults(res);
+            if(this.props.routerData.location.pathname !== '/searcheditems') this.props.routerData.history.push('/searcheditems');
+        });
+
+    }
+    handleChange = (event) => {
+        this.setState({ searchInput: event.target.value });
+    }
     render() {
         return (
             <div>
@@ -10,13 +30,15 @@ class Navbar extends React.Component {
                         Alibay
                     </li>
                     <li className="navbar">
-                        <input type="text"></input>
+                        <form className="inline" onSubmit={this.handleSubmit}>
+                            <input type="text" value={this.state.searchInput} onChange={this.handleChange}></input>
+                            <input type="submit" />
+                        </form>
                     </li>
-                    <li className="navbar">
-                        <input type="submit" />
-                    </li>
+
                     {this.props.email !== '' && <li>{this.props.email}</li>}
-                    <li>
+                    {this.props.name !== '' && <li>{this.props.name}</li>}
+                    <li className="navbar">
                         <Link to={'/cart'}> Cart </Link>
                     </li>
                     <li className="navbar">

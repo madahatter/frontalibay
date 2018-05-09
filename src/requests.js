@@ -30,7 +30,10 @@ function featuredImages() {
 }
 
 function search(searchTerm) {
-    return fetch('/search?term=' + searchTerm)
+    let terms = searchTerm.split(" ");
+    
+    console.log('/search?terms=' + JSON.stringify(terms))
+    return fetch('/search?terms=' + terms)
     .then(res => res.json())
 }
 
@@ -80,4 +83,4 @@ function removeFromCart(email, itemId) {
     })
     .then(res => res.json())
 }
-export { login, register, createListing, featuredImages, buy, addToCart, removeFromCart };
+export { login, register, createListing, featuredImages, buy, addToCart, removeFromCart, search };

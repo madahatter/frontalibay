@@ -29,7 +29,7 @@ class Register extends React.Component {
       this.state.emailInput,
       this.state.passwordInput,
       this.state.nameInput)
-      .then(this.setState({ emailInput: "", nameInput: "", passwordInput: "" }))
+      .then(this.setState({ emailInput: "", nameInput: "", passwordInput: "", redirect: true }))
   }
 
   render() {
