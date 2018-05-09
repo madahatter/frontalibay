@@ -41,6 +41,7 @@ class Register extends React.Component {
     if(this.state.redirect === false){
       return (
       <div>
+        <img src="https://cdn.store-assets.com/s/204782/f/477895.png"/>
         <form onSubmit={this.handleSubmit}>
           <div>
             <input placeholder="Email" type="email" onChange={this.handleEmail}></input>

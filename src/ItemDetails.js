@@ -12,12 +12,8 @@ export default class ItemDetails extends React.Component {
   render() {
     return (
       <div>
-        <Navbar email={this.props.email} name={this.props.name} />
         <Row>
-          <Col xs={6} md={2}>
-            <Categories/>
-          </Col>
-          <Col xs={6} md={4}>
+          <Col xs={6} md={6}>
             <img src="https://picsum.photos/700/400" />
           </Col>
           <Col xs={12} md={4}>

@@ -13,6 +13,7 @@ import Login from './Login';
 import Register from './Register';
 import Cart from './Cart';
 import Seller from './Seller';
+import SellerInput from './SellerInput'
 import SearchedItems from './SearchedItems';
 import Navbar from './Navbar.js';
 import Categories from './Categories.js';

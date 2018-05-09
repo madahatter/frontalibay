@@ -10,13 +10,8 @@ export default class Cart extends React.Component {
     return (
       <div>
         <div>
-          <NavBar />
           <div>
             <Row>
-              <Col>
-                <h1>Cart Items</h1>
-                <Categories />
-              </Col>
               <Col>
                 Map of the items list with a button to remove
               </Col>
