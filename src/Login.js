@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route, BrowserRouter, Redirect, Link } from "react-router-dom";
 import { login } from "./requests.js";
+import { Button } from "reactstrap";
 
 class Login extends React.Component {
   constructor() {
@@ -54,9 +55,9 @@ class Login extends React.Component {
             <div>
               <input type="submit" />
             </div>
-            <Route>
+            <Button outline color="primary">
               <Link to={"/"}> Link to homepage </Link>
-            </Route>
+            </Button>
           </form>
         </div>
       );

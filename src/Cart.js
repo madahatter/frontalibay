@@ -14,24 +14,25 @@ import {
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Categories from "./Categories";
-import ListingCard from './ListingCard';
 
 class Cart extends React.Component {
   constructor() {
     super();
     this.state = {
-      cartList: []
+      cartList: [],
+      itemID: "",
+      title: "abc",
+      price: "30$",
+      blurb: "lskdks",
+      imageName: "",
     };
   }
 
   getCart = () => {
     fetch('/itemCart?userID=' + this.props.email)
     .then((res)=> res.json())
-    .then(resJSON => {
-      console.log(resJSON)
-      this.setState({cartList: resJSON})} )
+    .then(resJSON => {this.setState({cartList: resJSON})} )
   }
-
   componentDidMount(){
     this.getCart()
   }
@@ -41,8 +42,8 @@ class Cart extends React.Component {
       <div>
         <div>
           {this.state.cartList.map( det => (
-            <div>
-              <Card className>
+            <div className="cardbody">
+              <Card className="card">
                 <CardImg src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" />
                 <CardBody>
                   <CardTitle>{det.title}</CardTitle>
@@ -57,13 +58,12 @@ class Cart extends React.Component {
           ))}
           </div>
    
-            <Button>
+            <Button outline color="primary">
               <Link to="/"> Link to homepage </Link>
             </Button>
-            <Button>
+            <Button outline color="primary">
               <Link to="/cart/checkout"> Checkout </Link>
             </Button>
- 
         </div>
     );
   }
