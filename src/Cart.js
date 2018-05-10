@@ -40,21 +40,15 @@ class Cart extends React.Component {
     };
   }
 
-  // addtoCart = () => {
-  //   let body = JSON.stringify({
-  //     title: 'title',
-  //     price: 'price',
-  //     blurb: 'blurb',
-  //     imageName: 'imageName'
-  //   })
-  //   fetch('/itemcart',{
-  //     method: "POST"
-  //   });
-  // }
+  getCart = () => {
+    fetch('/itemCart?userID=' + this.props.email)
+    .then((res)=> res.json())
+    .then(resJSON => {this.setState({cartList: resJSON})} )
+  }
 
-  // componentDidMount(){
-  //   this.addtoCart()
-  // }
+  componentDidMount(){
+    this.getCart()
+  }
 
   render() {
     return (

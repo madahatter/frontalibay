@@ -4,45 +4,20 @@ import Navbar from "./Navbar";
 import Categories from "./Categories";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, Button } from "reactstrap";
+import ListingCard from './ListingCard';
 
 export default class ItemDetails extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
-      itemID: "",
-      title: "",
-      price: "",
-      sellerID: "",
-      blurb: "",
-      imageName: "",
-      category: ""
-    };
-  }
-
-  getItemDetails = () => {
-    console.log(this.props.id);
-    fetch("/itemDetails/?itemid=" + this.props.id)
-      .then(response => response.text())
-      .then(details => {
-        // console.log(details)
-        // this.setState({
-        //   itemID: itemID,
-        //   title: title,
-        //   price: price,
-        //   sellerID: sellerID,
-        //   blurb: blurb,
-        //   imageName: "/backend/images/" + imageName,
-        //   category: category
-        // });
-      });
-  };
-
-  componentWillMount(){
-    this.getItemDetails()
+      item: null
+    }
   }
 
   componentDidMount() {
-    fetch("/getItem?itemId=" + this.props.itemId);
+    fetch('/itemDetails?itemID=' + this.props.itemID)
+      .then(res => res.json())
+      .then(res => { this.setState({ item: res }) })
   }
 
   render() {
@@ -50,10 +25,10 @@ export default class ItemDetails extends React.Component {
       <div>
         <Row>
           <Col xs={6} md={6}>
-            {this.state.imageName}
-          </Col>
-          <Col xs={12} md={4}>
-            {this.state.blurb}
+            <div>
+              {this.state.item ? <ListingCard {...this.state.item} addCartItem={this.props.addCartItem} /> :
+              <div> Loading</div>}
+            </div>
           </Col>
         </Row>
         <Row>
