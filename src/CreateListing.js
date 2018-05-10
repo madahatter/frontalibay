@@ -30,7 +30,7 @@ class CreateListing extends React.Component {
         .then(res => res.json())
         .then(res => {
             if(res.success) {
-                this.props.historyPush('/itemdetails/' + res.itemId)
+                this.props.historyPush('/itemdetails/' + res.itemID)
             }
         })
         

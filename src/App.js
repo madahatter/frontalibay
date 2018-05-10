@@ -116,7 +116,7 @@ class App extends React.Component {
                 <Route exact path='/cart' render={this.renderCart} />
                 <Route exact path='/sellerinfo/:sellerId' render={this.renderSellerInfo} />
                 <Route exact path='/searcheditems' render={this.renderSearchedItems} />
-                <Route exact path='/itemdetails/:itemId' render={this.renderItemDetails} />
+                <Route exact path='/itemdetails/:itemID' render={this.renderItemDetails} />
                 <Route exact path='/createlisting' render={this.renderCreateListing} />
               </Col>
             </Row>

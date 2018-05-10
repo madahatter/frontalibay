@@ -17,9 +17,7 @@ class SellerInfo extends React.Component {
     .then(res => res.json())
     .then(res => {this.setState({items: res})})
   }
-handleClick = (itemId) => {
-  this.props.addCartItem(itemId)
-} 
+
   render() {
     return (
       <div>
