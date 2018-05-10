@@ -34,9 +34,9 @@ class App extends React.Component {
     this.setState({ email, name })
   }
 
-  addCartItem = (itemId) => {
-    this.setState({cartItems: this.state.cartItems.concat(itemId)})
-    addToCart(itemId, this.state.email)
+  addCartItem = (itemID) => {
+    this.setState({cartItems: this.state.cartItems.concat(itemID)})
+    addToCart(itemID, this.state.email)
     .then(res => console.log(res))
   }
 
