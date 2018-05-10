@@ -22,12 +22,12 @@ function register(email, password, name) {
         .then(res => res.json())
 }
 
-function addToCart(itemID, email) {
+function addToCart(itemID) {
     return fetch('/addToCart', {
         method: 'POST',
+        credentials: 'same-origin',
         body: JSON.stringify({
             itemID,
-            email
         })
     })
   
