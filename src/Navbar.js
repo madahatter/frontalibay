@@ -36,6 +36,9 @@ class Navbar extends React.Component {
                 <div>
                     <Link to={"/register"}> Register </Link>
                 </div>
+                <div>
+                    <Link to={"/createlisting"}> Post add </Link>
+                </div>
             </div>
         )
     }

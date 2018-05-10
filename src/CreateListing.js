@@ -6,12 +6,16 @@ class CreateListing extends React.Component {
         this.state = {
             img: "",
             titleInput: "",
-            descriptionInput: ""
+            descriptionInput: "",
+            category: ""
         };
     }
 
     handleTitleChange = (event) => {
         this.setState({titleInput: event.target.value})
+    }
+    handleCatChange = (event) => {
+        this.setState({category: event.target.value})
     }
     handleDescChange = (event) => {
         this.setState({descriptionInput: event.target.value})
@@ -29,6 +33,7 @@ class CreateListing extends React.Component {
         })
         .then(res => res.json())
         .then(res => {
+            console.log(res)
             if(res.success) {
                 this.props.historyPush('/itemdetails/' + res.itemID)
             }
@@ -50,6 +55,12 @@ class CreateListing extends React.Component {
         <form onSubmit={this.handleSubmit}>
             <input type="text" placeholder="Title" value={this.state.titleInput} onChange={this.handleTitleChange}/>
             <input type="text" placeholder="Description" value={this.state.descriptionInput} onChange={this.handleDescChange}/>
+            <select name="Categories" onChange={this.handleCatChange}>
+                <option value="Phones and Accessories">Phones and Accessories</option>
+                <option value="Jewelry">Jewelry and Watches</option>
+                <option value="Consumer Electronics">Consumer Electronics</option>
+                <option value="Cars">Cars</option>
+            </select>
             <input type="file" onChange={e => this.handleImageUpload(e.target.files[0])} />
             <input type="submit"/>
         </form>

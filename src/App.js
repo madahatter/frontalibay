@@ -86,14 +86,14 @@ class App extends React.Component {
   }
   renderItemDetails = (routerData) => {
     let itemID = routerData.match.params.itemID
-    return (<ItemDetails itemID={itemID}/>)
+    return (<ItemDetails itemID={itemID} addCartItem={this.addCartItem}/>)
   }
 
   renderConfirmationPage = () => {
     return(<Confirmation/>)
   }
 
-  renderCheckout = () => {
+  renderCheckout = (routerData) => {
     return(<Checkout/>)
   }
 
@@ -117,6 +117,9 @@ class App extends React.Component {
                 <Route exact path='/cart' render={this.renderCart} />
                 <Route exact path='/sellerinfo/:sellerId' render={this.renderSellerInfo} />
                 <Route exact path='/searcheditems' render={this.renderSearchedItems} />
+                {/* <Route exact path='/itemdetails/:id' render={this.renderItemDetails} /> */}
+                <Route exact path='/confirmation' render={this.renderConfirmationPage}/>
+                <Route exact path='/cart/checkout' render={this.renderCheckout}/>
                 <Route exact path='/itemdetails/:itemID' render={this.renderItemDetails} />
                 <Route exact path='/createlisting' render={this.renderCreateListing} />
               </Col>
