@@ -30,14 +30,22 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount = () => {
+    fetch('/session', {
+      credentials: 'same-origin'
+    })
+
+  }
   setEmail = (email, name) => {
     this.setState({ email, name })
   }
 
-  addCartItem = (itemId) => {
-    this.setState({cartItems: this.state.cartItems.concat(itemId)})
-    addToCart(itemId, this.state.email)
-    .then(res => console.log(res))
+  addCartItem = (itemID) => {
+    addToCart(itemID, this.state.email)
+    .then(res => 
+      {
+        return this.setState({cartItems: this.state.cartItems.concat(res.itemID)})
+      })
   }
 
   renderHome = () => {
@@ -57,7 +65,7 @@ class App extends React.Component {
   }
 
   renderSellerInfo = (routerData) => {
-    let sellerId = routerData.match.params.userId;
+    let sellerId = routerData.match.params.userID;
     return (<SellerInfo sellerId={sellerId} addCartItem={this.addCartItem}/>)
   }
 
@@ -85,7 +93,8 @@ class App extends React.Component {
     });
   }
   renderItemDetails = (routerData) => {
-    return (<ItemDetails itemID={routerData.match.params.itemID}/>)
+    let itemID = routerData.match.params.itemID
+    return (<ItemDetails itemID={itemID} addCartItem={this.addCartItem}/>)
   }
 
   renderConfirmationPage = () => {
@@ -94,12 +103,10 @@ class App extends React.Component {
 
   renderCheckout = (routerData) => {
     return(<Checkout/>)
-    let itemID = routerData.match.params.itemID;
-    return (<ItemDetails itemID={itemID}/>)
   }
 
   renderCreateListing = (routerData) => {
-    return (<CreateListing historyPush = {routerData.history.push}/>)
+    return this.state.email ? <CreateListing historyPush = {routerData.history.push}/> : <Redirect to="/login"/>;
   }
 
   render() {
@@ -111,10 +118,15 @@ class App extends React.Component {
               <Col xs={6} md="auto">
                 <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderCategories} />
               </Col>
+<<<<<<< HEAD
               <Col xs={12} md={8}>
                 <Route exact path='/' render={this.renderHome} />
+=======
+              <Col xs={12} md={10}>
+>>>>>>> 291edd7d839dc7f5ded876facc8bf5034270241f
                 <Route exact path='/login' render={this.renderLogin} />
                 <Route exact path='/register' render={this.renderRegister} />
+                <Route exact path='/' render={this.renderHome} />
                 <Route exact path='/cart' render={this.renderCart} />
                 <Route exact path='/sellerinfo/:sellerId' render={this.renderSellerInfo} />
                 <Route exact path='/searcheditems' render={this.renderSearchedItems} />
