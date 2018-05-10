@@ -14,6 +14,7 @@ class ListingCard extends React.Component {
             <li>{this.props.price}</li>
             <li>{this.props.sellerID}</li>
             <li>{this.props.category}</li>
+           <img src={'/' + this.props.imageName}/>
         </ul>
     )
   }

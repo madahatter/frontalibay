@@ -23,14 +23,15 @@ function register(email, password, name) {
 }
 
 function addToCart(itemID, email) {
-    return fetch('/addCartItem', {
+    return fetch('/addToCart', {
         method: 'POST',
         body: JSON.stringify({
             itemID,
             email
         })
     })
-    .then(res => res.json())
+  
+   .then(res => res.json())
 }
 function featuredImages() {
     return fetch('/featuredImages', {

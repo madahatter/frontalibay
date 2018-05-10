@@ -35,9 +35,11 @@ class App extends React.Component {
   }
 
   addCartItem = (itemID) => {
-    this.setState({cartItems: this.state.cartItems.concat(itemID)})
     addToCart(itemID, this.state.email)
-    .then(res => console.log(res))
+    .then(res => 
+      {
+        return this.setState({cartItems: this.state.cartItems.concat(res.itemID)})
+      })
   }
 
   renderHome = () => {
