@@ -22,15 +22,16 @@ function register(email, password, name) {
         .then(res => res.json())
 }
 
-function addToCart(itemId, email) {
+function addToCart(itemID, email) {
     return fetch('/addToCart', {
         method: 'POST',
         body: JSON.stringify({
-            itemId,
+            itemID,
             email
         })
     })
-    .then(res => res.json())
+  
+   .then(res => res.json())
 }
 function featuredImages() {
     return fetch('/featuredImages', {
@@ -61,34 +62,23 @@ function createListing(email, title, description, image, category) {
         .then(res => res.json())
 }
 
-function buy(email, itemId) {
+function buy(email, itemID) {
     return fetch('/buy', {
         method: 'POST',
         body: JSON.stringify({
             email,
-            itemId
+            itemID
         })
     })
         .then(res => res.json())
 }
 
-// function addToCart(email, itemId) {
-//     return fetch('/addToCart', {
-//         method: 'POST',
-//         body: JSON.stringify({
-//             email,
-//             itemId
-//         })
-//     })
-//         .then(res => res.json())
-// }
-
-function removeFromCart(email, itemId) {
+function removeFromCart(email, itemID) {
     return fetch('/addToCart', {
         method: 'POST',
         body: JSON.stringify({
             email,
-            itemId
+            itemID
         })
     })
         .then(res => res.json())
