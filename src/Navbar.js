@@ -28,7 +28,7 @@ class Navbar extends React.Component {
                 </div>
                 {this.props.name !== '' && <li>{this.props.name}</li>}
                 <div>
-                    <Link to={'/cart'}> Cart </Link>
+                    <Link to={'/cart'}> Cart {this.props.cartItems > 0 ? this.props.cartItems: ""} </Link>
                 </div>
                 <div>
                     <Link to={"/login"}> Login </Link>

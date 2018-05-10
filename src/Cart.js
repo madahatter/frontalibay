@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Button } from 'reactstrap';
 import { Link } from 'react-router-dom'
-import NavBar from './Navbar';
+import Navbar from './Navbar';
 import Categories from './Categories'
 
-export default class Cart extends React.Component {
+class Cart extends React.Component {
   render() {
     return (
       <div>
@@ -28,3 +28,4 @@ export default class Cart extends React.Component {
     )
   }
 }
+export default Cart;

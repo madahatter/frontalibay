@@ -2,23 +2,20 @@ import React, { Component } from 'react';
 import { Route, Redirect, BrowserRouter, Link, withRouter } from 'react-router-dom'
 import pathToRegexp from 'path-to-regexp';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {
-  Container,
-  Row,
-  Col,
-} from 'reactstrap';
-import { search } from './requests.js';
+import { Container, Row, Col } from 'reactstrap';
+import { search, addToCart } from './requests.js';
 import Home from './Home';
 import Login from './Login';
 import Register from './Register';
 import Cart from './Cart';
-import Seller from './Seller';
-import SellerInput from './SellerInput'
+import SellerInfo from './SellerInfo';
+//import SellerInput from './SellerInput'
 import SearchedItems from './SearchedItems';
 import Navbar from './Navbar.js';
 import Categories from './Categories.js';
 import ItemDetails from './ItemDetails';
 import './App.css';
+import CreateListing from './CreateListing.js'
 
 
 class App extends React.Component {
@@ -27,12 +24,19 @@ class App extends React.Component {
     this.state = {
       email: "",
       name: "",
-      searchResults: []
+      searchResults: [],
+      cartItems: []
     }
   }
 
   setEmail = (email, name) => {
     this.setState({ email, name })
+  }
+
+  addCartItem = (itemId) => {
+    this.setState({cartItems: this.state.cartItems.concat(itemId)})
+    addToCart(itemId, this.state.email)
+    .then(res => console.log(res))
   }
 
   renderHome = () => {
@@ -48,19 +52,20 @@ class App extends React.Component {
   }
 
   renderCart = () => {
-    return (<Cart />)
+    return (<Cart cartItems={this.state.cartItems}/>)
   }
 
-  renderSellerInfo = () => {
-    return (<Seller />)
+  renderSellerInfo = (routerData) => {
+    let sellerId = routerData.match.params.userId;
+    return (<SellerInfo sellerId={sellerId} addCartItem={this.addCartItem}/>)
   }
 
   renderSearchedItems = () => {
-    return (<SearchedItems searchResults={this.state.searchResults} />)
+    return (<SearchedItems searchResults={this.state.searchResults} addCartItem={this.addCartItem}/>)
   }
 
   renderNavbar = () => {
-    return <Navbar email={this.state.email} name={this.state.name} search={this.search}/>;
+    return <Navbar email={this.state.email} name={this.state.name} search={this.search} cartItems={this.state.cartItems.length}/>;
   }
 
   renderCategories = (routerData) => {
@@ -70,18 +75,22 @@ class App extends React.Component {
   setSearchResults = (results) => {
     this.setState({ searchResults: results });
   }
-  search = (searchTerm) => {
-    search(searchTerm)
+  search = (searchTerm, opts) => {
+    search(searchTerm, opts)
     .then(res => {
         console.log(res);
         this.setSearchResults(res);
         if(this.props.location.pathname !== '/searcheditems') this.props.history.push('/searcheditems');
     });
   }
-  renderItemDetails = () => {
-    return (<ItemDetails />)
+  renderItemDetails = (routerData) => {
+    let itemId = routerData.match.params.itemId;
+    return (<ItemDetails itemId={itemId}/>)
   }
 
+  renderCreateListing = (routerData) => {
+    return (<CreateListing historyPush = {routerData.history.push}/>)
+  }
 
   render() {
     return (
@@ -97,9 +106,10 @@ class App extends React.Component {
                 <Route exact path='/login' render={this.renderLogin} />
                 <Route exact path='/register' render={this.renderRegister} />
                 <Route exact path='/cart' render={this.renderCart} />
-                <Route exact path='/sellerinfo' render={this.renderSellerInfo} />
+                <Route exact path='/sellerinfo/:sellerId' render={this.renderSellerInfo} />
                 <Route exact path='/searcheditems' render={this.renderSearchedItems} />
-                <Route exact path='/itemdetails' render={this.renderItemDetails} />
+                <Route exact path='/itemdetails/:itemId' render={this.renderItemDetails} />
+                <Route exact path='/createlisting' render={this.renderCreateListing} />
               </Col>
             </Row>
           </Container>

@@ -9,6 +9,9 @@ export default class ItemDetails extends React.Component {
   constructor() {
     super();
   }
+  componentDidMount() {
+    fetch('/getItem?itemId=' + this.props.itemId)
+  }
   render() {
     return (
       <div>
