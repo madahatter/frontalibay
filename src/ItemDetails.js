@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Categories from "./Categories";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, Button } from "reactstrap";
+import ListingCard from './ListingCard';
 
 export default class ItemDetails extends React.Component {
   constructor() {
@@ -14,7 +15,7 @@ export default class ItemDetails extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/getItem?itemID=' + this.props.itemID)
+    fetch('/itemDetails?itemID=' + this.props.itemID)
       .then(res => res.json())
       .then(res => { this.setState({ item: res }) })
   }

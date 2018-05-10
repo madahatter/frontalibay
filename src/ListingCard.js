@@ -8,9 +8,9 @@ class ListingCard extends React.Component {
   render() {
     return (
         <ul>
-            <li>{this.props.itemTitle} <button onClick={this.handleClick}>Add to cart</button></li>
-            <li>{this.props.itemBlurb}</li>
-            <li>{this.props.itemPrice}</li>
+            <li>{this.props.title} <button onClick={this.handleClick}>Add to cart</button></li>
+            <li>{this.props.blurb}</li>
+            <li>{this.props.price}</li>
         </ul>
     )
   }

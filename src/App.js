@@ -57,7 +57,7 @@ class App extends React.Component {
   }
 
   renderSellerInfo = (routerData) => {
-    let sellerId = routerData.match.params.userId;
+    let sellerId = routerData.match.params.userID;
     return (<SellerInfo sellerId={sellerId} addCartItem={this.addCartItem}/>)
   }
 
@@ -85,7 +85,8 @@ class App extends React.Component {
     });
   }
   renderItemDetails = (routerData) => {
-    return (<ItemDetails itemID={routerData.match.params.itemID}/>)
+    let itemID = routerData.match.params.itemID
+    return (<ItemDetails itemID={itemID}/>)
   }
 
   renderConfirmationPage = () => {
@@ -97,7 +98,7 @@ class App extends React.Component {
   }
 
   renderCreateListing = (routerData) => {
-    return (<CreateListing historyPush = {routerData.history.push}/>)
+    return this.state.email ? <CreateListing historyPush = {routerData.history.push}/> : <Redirect to="/login"/>;
   }
 
   render() {
@@ -110,9 +111,9 @@ class App extends React.Component {
                 <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderCategories} />
               </Col>
               <Col xs={12} md={10}>
-                <Route exact path='/' render={this.renderHome} />
                 <Route exact path='/login' render={this.renderLogin} />
                 <Route exact path='/register' render={this.renderRegister} />
+                <Route exact path='/' render={this.renderHome} />
                 <Route exact path='/cart' render={this.renderCart} />
                 <Route exact path='/sellerinfo/:sellerId' render={this.renderSellerInfo} />
                 <Route exact path='/searcheditems' render={this.renderSearchedItems} />
