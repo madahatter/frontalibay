@@ -20,11 +20,11 @@ export default class ItemDetails extends React.Component {
   }
 
   getItemDetails = () => {
-    console.log(this.props.id)
+    console.log(this.props.id);
     fetch("/itemDetails/?itemid=" + this.props.id)
       .then(response => response.text())
       .then(details => {
-        console.log(details)
+        // console.log(details)
         // this.setState({
         //   itemID: itemID,
         //   title: title,
@@ -42,8 +42,9 @@ export default class ItemDetails extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/getItem?itemId=' + this.props.itemId)
+    fetch("/getItem?itemId=" + this.props.itemId);
   }
+
   render() {
     return (
       <div>
@@ -67,7 +68,9 @@ export default class ItemDetails extends React.Component {
             </Button>
           </Col>
           <Col>
-            <Button> Add to cart </Button>
+            <Button>
+              <Link to="/cart/checkout"> Add to Cart </Link>
+            </Button>
           </Col>
         </Row>
       </div>
