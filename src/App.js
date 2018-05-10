@@ -30,6 +30,12 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount = () => {
+    fetch('/session', {
+      credentials: 'same-origin'
+    })
+
+  }
   setEmail = (email, name) => {
     this.setState({ email, name })
   }
