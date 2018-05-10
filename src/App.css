@@ -42,3 +42,21 @@ img{
   padding: 1px;
   margin: 1px
 } */
+
+.cart{
+  border: 1px solid black;
+}
+
+.cartImg{
+  float: left;
+}
+
+.cartItemName{
+  float: right;
+}
+.cartDesc{
+  float: right;
+}
+.cartPrice{
+  float: right;
+}

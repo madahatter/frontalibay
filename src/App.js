@@ -53,7 +53,7 @@ class App extends React.Component {
   }
 
   renderCart = () => {
-    return (<Cart cartItems={this.state.cartItems}/>)
+    return (<Cart cartItems={this.state.cartItems} email={this.state.email} />)
   }
 
   renderSellerInfo = (routerData) => {
