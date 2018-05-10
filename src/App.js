@@ -9,11 +9,12 @@ import Login from './Login';
 import Register from './Register';
 import Cart from './Cart';
 import SellerInfo from './SellerInfo';
-//import SellerInput from './SellerInput'
 import SearchedItems from './SearchedItems';
 import Navbar from './Navbar.js';
 import Categories from './Categories.js';
 import ItemDetails from './ItemDetails';
+import Confirmation from './Confirmation';
+import Checkout from './Checkout';
 import './App.css';
 import CreateListing from './CreateListing.js'
 
@@ -84,8 +85,20 @@ class App extends React.Component {
     });
   }
   renderItemDetails = (routerData) => {
+<<<<<<< HEAD
+    return (<ItemDetails id={routerData.match.params.id}/>)
+  }
+
+  renderConfirmationPage = () => {
+    return(<Confirmation/>)
+  }
+
+  renderCheckout = () => {
+    return(<Checkout/>)
+=======
     let itemId = routerData.match.params.itemId;
     return (<ItemDetails itemId={itemId}/>)
+>>>>>>> 99e95b577b6562a1189dc46eda8bd36110df57ab
   }
 
   renderCreateListing = (routerData) => {
@@ -108,8 +121,14 @@ class App extends React.Component {
                 <Route exact path='/cart' render={this.renderCart} />
                 <Route exact path='/sellerinfo/:sellerId' render={this.renderSellerInfo} />
                 <Route exact path='/searcheditems' render={this.renderSearchedItems} />
+<<<<<<< HEAD
+                <Route exact path='/itemdetails/:id' render={this.renderItemDetails} />
+                <Route exact path='/confirmation' render={this.renderConfirmationPage}/>
+                <Route exact path='/cart/checkout' render={this.renderCheckout}/>
+=======
                 <Route exact path='/itemdetails/:itemId' render={this.renderItemDetails} />
                 <Route exact path='/createlisting' render={this.renderCreateListing} />
+>>>>>>> 99e95b577b6562a1189dc46eda8bd36110df57ab
               </Col>
             </Row>
           </Container>
