@@ -34,6 +34,8 @@ class App extends React.Component {
     fetch('/session', {
       credentials: 'same-origin'
     })
+    .then(res => res.json())
+    .then(res => this.setState({cartItems: res.cartItems}))
 
   }
   setEmail = (email, name) => {
@@ -87,7 +89,6 @@ class App extends React.Component {
   search = (searchTerm, opts) => {
     search(searchTerm, opts)
     .then(res => {
-        console.log(res);
         this.setSearchResults(res);
         if(this.props.location.pathname !== '/searcheditems') this.props.history.push('/searcheditems');
     });
