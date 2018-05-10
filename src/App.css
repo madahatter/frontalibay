@@ -5,6 +5,7 @@
 
 .navSearch {
   flex: 1;
+  margin-right: 35px;
 }
 
 .navSearch > form {
@@ -19,10 +20,8 @@
   padding: 10px;
 }
 
-ul{
+li{
   list-style-type: none;
-  width: 70%;
-  margin: auto;
 }
 
 .loginRegister{
@@ -31,32 +30,23 @@ ul{
   padding: 10px;
 }
 
-img{
-  max-width: 100%;
-  height: auto;
+.img{
+  margin-right: 35px;
 }
 
-/* .smallLogo{
-  max-width:10%;
-  max-height:10%;
-  padding: 1px;
-  margin: 1px
-} */
+.card{
+  width: auto;
+}
 
-.cart{
+.cardbody{
+  position: center;
   border: 1px solid black;
 }
 
-.cartImg{
-  float: left;
+a{
+  color: black
 }
 
-.cartItemName{
-  float: right;
-}
-.cartDesc{
-  float: right;
-}
-.cartPrice{
-  float: right;
+.hotdeal{
+  text-align: center
 }

@@ -19,19 +19,7 @@ class Cart extends React.Component {
   constructor() {
     super();
     this.state = {
-      cartList: [{'itemID': "",
-      'title': "abc",
-      'price': "30$",
-      'blurb': "lskdks",
-      'imageName': ""},{'itemID': "",
-      'title': "abc",
-      'price': "30$",
-      'blurb': "lskdks",
-      'imageName': ""},{'itemID': "",
-      'title': "abc",
-      'price': "30$",
-      'blurb': "lskdks",
-      'imageName': ""}],
+      cartList: [],
       itemID: "",
       title: "abc",
       price: "30$",
@@ -45,7 +33,6 @@ class Cart extends React.Component {
     .then((res)=> res.json())
     .then(resJSON => {this.setState({cartList: resJSON})} )
   }
-
   componentDidMount(){
     this.getCart()
   }
@@ -55,8 +42,8 @@ class Cart extends React.Component {
       <div>
         <div>
           {this.state.cartList.map( det => (
-            <div>
-              <Card className>
+            <div className="cardbody">
+              <Card className="card">
                 <CardImg src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" />
                 <CardBody>
                   <CardTitle>{det.title}</CardTitle>
@@ -71,10 +58,10 @@ class Cart extends React.Component {
           ))}
           </div>
    
-            <Button>
+            <Button outline color="primary">
               <Link to="/"> Link to homepage </Link>
             </Button>
-            <Button>
+            <Button outline color="primary">
               <Link to="/cart/checkout"> Checkout </Link>
             </Button>
  
