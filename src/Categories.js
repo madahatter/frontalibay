@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Button, Row, Col} from 'reactstrap'
 
 class Categories extends React.Component {
   handleClick = (searchTerm) => {
@@ -7,15 +8,15 @@ class Categories extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h4>Categories</h4>
-        <ul>
-          <li><button onClick={() => this.handleClick('Phones')}>Phones and Accessories</button></li>
-          <li><button onClick={() => this.handleClick('Jewelry')}>Jewelry and Watches</button></li>
-          <li><button onClick={() => this.handleClick('Electronics')}>Consumer Electronics</button></li>
-          <li><button onClick={() => this.handleClick('Cars')}>Cars</button></li>
-        </ul>
-      </div>
+      <Row>
+          <Col>
+            <h4>Categories</h4>
+            <li><Button bsClass="btn-block" style={{width:"100%", "margin-bottom":"3px"}} outline color="warning" onClick={() => this.handleClick('Jewelry')}>Jewelry and Watches</Button></li>
+            <li><Button bsClass="btn-block" style={{width:"100%", "margin-bottom":"3px"}} outline color="primary" onClick={() => this.handleClick('Phones')}>Phones and Accessories</Button></li>
+            <li><Button bsClass="btn-block" style={{width:"100%", "margin-bottom":"3px"}} outline color="danger"  onClick={() => this.handleClick('Electronics')}>Consumer Electronics</Button></li>
+            <li><Button bsClass="btn-block" style={{width:"100%", "margin-bottom":"3px"}} outline color="success" onClick={() => this.handleClick('Cars')}>Cars</Button></li>
+          </Col>
+      </Row>   
     )
   }
 }

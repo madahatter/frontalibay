@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import {NavbarBrand, Button} from 'reactstrap'
 
 class Navbar extends React.Component {
     constructor() {
@@ -19,7 +20,7 @@ class Navbar extends React.Component {
     render() {
         return (
             <div className="navbar">
-                <div>Alibay</div>
+                <NavbarBrand className="img"><img src="https://i.imgur.com/39QKayV.png"/><Link to="/"></Link></NavbarBrand>
                 <div className="navSearch">
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" value={this.state.searchInput} onChange={this.handleChange}></input>
@@ -27,18 +28,18 @@ class Navbar extends React.Component {
                     </form>
                 </div>
                 {this.props.name !== '' && <li>{this.props.name}</li>}
-                <div>
+                <Button outline color="warning" style={{margin:"2px"}}>
                     <Link to={'/cart'}> Cart {this.props.cartItems > 0 ? this.props.cartItems: ""} </Link>
-                </div>
-                <div>
+                </Button>
+                <Button outline color="primary" style={{margin:"2px"}}>
                     <Link to={"/login"}> Login </Link>
-                </div>
-                <div>
+                </Button>
+                <Button outline color="danger" style={{margin:"2px"}}>
                     <Link to={"/register"}> Register </Link>
-                </div>
-                <div>
+                </Button>
+                <Button outline color="success" style={{margin:"2px"}}>
                     <Link to={"/createlisting"}> Post add </Link>
-                </div>
+                </Button>
             </div>
         )
     }
