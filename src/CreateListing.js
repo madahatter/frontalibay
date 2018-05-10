@@ -22,6 +22,7 @@ class CreateListing extends React.Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
+        console.log(this.state)
         fetch('/createListing', {
             method: 'POST',
             body: JSON.stringify({

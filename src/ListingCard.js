@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 
 
 class ListingCard extends React.Component {
-    handleClick = (itemId) => {
-    this.props.addCartItem(itemId)
+    handleClick = () => {
+    this.props.addCartItem(this.props.itemId)
     } 
   render() {
     return (
         <ul>
-            <li>{this.props.itemTitle} <button onClick={() => this.handleClick(this.props.itemId)}>Add to cart</button></li>
-            <li>{this.props.itemBlurb}</li>
-            <li>{this.props.itemPrice}</li>
+            <li>{this.props.title} <button onClick={this.handleClick}>Add to cart</button></li>
+            <li>{this.props.blurb}</li>
+            <li>{this.props.price}</li>
+            <li>{this.props.sellerID}</li>
+            <li>{this.props.category}</li>
         </ul>
     )
   }
