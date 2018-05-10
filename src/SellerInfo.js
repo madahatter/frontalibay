@@ -2,9 +2,24 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import ListingCard from './ListingCard';
 
 
-export default class Seller extends React.Component {
+class SellerInfo extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      items: []
+    }
+  }
+  componentDidMount() {
+    fetch('/itemsbySeller?sellerId=' + this.props.sellerId)
+    .then(res => res.json())
+    .then(res => {this.setState({items: res})})
+  }
+handleClick = (itemId) => {
+  this.props.addCartItem(itemId)
+} 
   render() {
     return (
       <div>
@@ -21,6 +36,9 @@ export default class Seller extends React.Component {
           </Col>
           <Col xs={12} md={4}>
             <h1>List of seller's items</h1>
+            <div>
+              {this.state.items.map(item => <ListingCard {...item} addCartItem={this.props.addCartItem} />)}
+            </div>
           </Col>
         </Row>
         <Row>
@@ -34,3 +52,5 @@ export default class Seller extends React.Component {
     )
   }
 }
+
+export default SellerInfo;

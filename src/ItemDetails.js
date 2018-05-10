@@ -41,6 +41,9 @@ export default class ItemDetails extends React.Component {
     this.getItemDetails()
   }
 
+  componentDidMount() {
+    fetch('/getItem?itemId=' + this.props.itemId)
+  }
   render() {
     return (
       <div>
