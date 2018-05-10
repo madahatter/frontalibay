@@ -115,15 +115,10 @@ class App extends React.Component {
           <Container>
             <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderNavbar} />
             <Row>
-              <Col xs={6} md="auto">
+              <Col xs={6} md={3}>
                 <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderCategories} />
               </Col>
-<<<<<<< HEAD
-              <Col xs={12} md={8}>
-                <Route exact path='/' render={this.renderHome} />
-=======
-              <Col xs={12} md={10}>
->>>>>>> 291edd7d839dc7f5ded876facc8bf5034270241f
+              <Col xs={12} md={9}>
                 <Route exact path='/login' render={this.renderLogin} />
                 <Route exact path='/register' render={this.renderRegister} />
                 <Route exact path='/' render={this.renderHome} />

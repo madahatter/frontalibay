@@ -38,7 +38,7 @@ class Navbar extends React.Component {
                     <Link to={"/register"}> Register </Link>
                 </Button>
                 <Button outline color="success" style={{margin:"2px"}}>
-                    <Link to={"/createlisting"}> Post add </Link>
+                    <Link to={"/createlisting"}> Sell Item </Link>
                 </Button>
             </div>
         )

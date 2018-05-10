@@ -10,7 +10,6 @@ class Categories extends React.Component {
     return (
       <Row>
           <Col>
-            <h4>Categories</h4>
             <li><Button bsClass="btn-block" style={{width:"100%", "margin-bottom":"3px"}} outline color="warning" onClick={() => this.handleClick('Jewelry')}>Jewelry and Watches</Button></li>
             <li><Button bsClass="btn-block" style={{width:"100%", "margin-bottom":"3px"}} outline color="primary" onClick={() => this.handleClick('Phones')}>Phones and Accessories</Button></li>
             <li><Button bsClass="btn-block" style={{width:"100%", "margin-bottom":"3px"}} outline color="danger"  onClick={() => this.handleClick('Electronics')}>Consumer Electronics</Button></li>
