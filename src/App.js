@@ -13,11 +13,12 @@ import Login from './Login';
 import Register from './Register';
 import Cart from './Cart';
 import Seller from './Seller';
-import SellerInput from './SellerInput'
 import SearchedItems from './SearchedItems';
 import Navbar from './Navbar.js';
 import Categories from './Categories.js';
 import ItemDetails from './ItemDetails';
+import Confirmation from './Confirmation';
+import Checkout from './Checkout';
 import './App.css';
 
 
@@ -78,8 +79,16 @@ export default class App extends React.Component {
         if(routerData.location.pathname !== '/searcheditems') routerData.history.push('/searcheditems');
     });
   }
-  renderItemDetails = () => {
-    return (<ItemDetails />)
+  renderItemDetails = (routerData) => {
+    return (<ItemDetails id={routerData.match.params.id}/>)
+  }
+
+  renderConfirmationPage = () => {
+    return(<Confirmation/>)
+  }
+
+  renderCheckout = () => {
+    return(<Checkout/>)
   }
 
 
@@ -100,7 +109,9 @@ export default class App extends React.Component {
                 <Route exact path='/cart' render={this.renderCart} />
                 <Route exact path='/sellerinfo' render={this.renderSellerInfo} />
                 <Route exact path='/searcheditems' render={this.renderSearchedItems} />
-                <Route exact path='/itemdetails' render={this.renderItemDetails} />
+                <Route exact path='/itemdetails/:id' render={this.renderItemDetails} />
+                <Route exact path='/confirmation' render={this.renderConfirmationPage}/>
+                <Route exact path='/cart/checkout' render={this.renderCheckout}/>
               </Col>
             </Row>
           </Container>

@@ -21,7 +21,9 @@ export default class Cart extends React.Component {
             <Button>
               <Link to='/'> Link to homepage </Link>
             </Button>
-            <Button>Checkout</Button>
+            <Button>
+              <Link to='/cart/checkout'> Checkout </Link>
+            </Button>
           </Row>
         </div>
       </div>
