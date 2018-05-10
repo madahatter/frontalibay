@@ -23,7 +23,7 @@ function register(email, password, name) {
 }
 
 function addToCart(itemId, email) {
-    return fetch('/addCartItem', {
+    return fetch('/addToCart', {
         method: 'POST',
         body: JSON.stringify({
             itemId,
