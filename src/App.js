@@ -43,10 +43,12 @@ class App extends React.Component {
   }
 
   addCartItem = (itemID) => {
-    addToCart(itemID, this.state.email)
+    addToCart(itemID)
     .then(res => 
       {
-        return this.setState({cartItems: this.state.cartItems.concat(res.itemID)})
+        return this.setState({
+          cartItems: this.state.cartItems.concat(res.itemID)
+        })
       })
   }
 
@@ -63,12 +65,12 @@ class App extends React.Component {
   }
 
   renderCart = () => {
-    return (<Cart cartItems={this.state.cartItems} email={this.state.email} />)
+    return (<Cart cartItems={this.state.cartItems} />)
   }
 
   renderSellerInfo = (routerData) => {
-    let sellerId = routerData.match.params.userID;
-    return (<SellerInfo sellerId={sellerId} addCartItem={this.addCartItem}/>)
+    let sellerID = routerData.match.params.sellerID;
+    return (<SellerInfo sellerID={sellerID} addCartItem={this.addCartItem}/>)
   }
 
   renderSearchedItems = () => {
@@ -124,9 +126,8 @@ class App extends React.Component {
                 <Route exact path='/register' render={this.renderRegister} />
                 <Route exact path='/' render={this.renderHome} />
                 <Route exact path='/cart' render={this.renderCart} />
-                <Route exact path='/sellerinfo/:sellerId' render={this.renderSellerInfo} />
+                <Route exact path='/itemsbySeller/:sellerID' render={this.renderSellerInfo} />
                 <Route exact path='/searcheditems' render={this.renderSearchedItems} />
-                {/* <Route exact path='/itemdetails/:id' render={this.renderItemDetails} /> */}
                 <Route exact path='/confirmation' render={this.renderConfirmationPage}/>
                 <Route exact path='/cart/checkout' render={this.renderCheckout}/>
                 <Route exact path='/itemdetails/:itemID' render={this.renderItemDetails} />

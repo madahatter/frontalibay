@@ -51,7 +51,7 @@ export default class ItemDetails extends React.Component {
         <Row>
           <Col>
             <Button>
-              <Link to="/sellerinfo"> Link to Seller's page </Link>
+              {this.state.item ? <Link to={"/itemsbySeller/" + this.state.item.sellerID}> Link to Seller's page </Link> : null}
             </Button>
           </Col>
           <Col>

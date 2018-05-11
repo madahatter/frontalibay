@@ -25,13 +25,13 @@ class Cart extends React.Component {
   }
 
   getCart = () => {
-    fetch('/itemCart?userID=' + this.props.email, {
+    fetch('/itemCart', {
       credentials: 'same-origin'
     })
-    .then((res)=> res.text())
+    .then((res)=> res.json())
     .then(resJSON => {
       console.log(resJSON)
-      //this.setState({cartList: resJSON});
+      this.setState({cartList: resJSON});
     } )
   }
   componentDidMount(){

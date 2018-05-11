@@ -13,12 +13,14 @@ class SellerInfo extends React.Component {
     }
   }
   componentDidMount() {
-    fetch('/itemsbySeller?sellerId=' + this.props.sellerId)
+    fetch('/itemsbySeller?sellerID=' + this.props.sellerID)
     .then(res => res.json())
     .then(res => {this.setState({items: res})})
   }
 
   render() {
+    console.log(this.props)
+    console.log(this.state.items)
     return (
       <div>
         <Row>
@@ -35,6 +37,7 @@ class SellerInfo extends React.Component {
           <Col xs={12} md={4}>
             <h1>List of seller's items</h1>
             <div>
+              adadasdasafdasfaf
               {this.state.items.map(item => <ListingCard {...item} addCartItem={this.props.addCartItem} />)}
             </div>
           </Col>
