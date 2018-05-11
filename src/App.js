@@ -118,10 +118,10 @@ class App extends React.Component {
           <Container fluid>
             <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderNavbar} />
             <Row>
-              <Col xs={12} md={4}>
+              <div xs={12} md={4}>
                 <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderCategories} />
-              </Col>
-              <Col xs={12} md={8}>
+              </div>
+              <div xs={12} md={8}>
                 <Route exact path='/login' render={this.renderLogin} />
                 <Route exact path='/register' render={this.renderRegister} />
                 <Route exact path='/' render={this.renderHome} />
@@ -132,7 +132,7 @@ class App extends React.Component {
                 <Route exact path='/cart/checkout' render={this.renderCheckout}/>
                 <Route exact path='/itemdetails/:itemID' render={this.renderItemDetails} />
                 <Route exact path='/createlisting' render={this.renderCreateListing} />
-              </Col>
+              </div>
             </Row>
           </Container>
       </div >

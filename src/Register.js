@@ -46,9 +46,9 @@ class Register extends React.Component {
     }
     if (this.state.redirect === false) {
       return (
-        <div>
+        <div className="loginRegister">
           <img src="https://cdn.store-assets.com/s/204782/f/477895.png" />
-          <form onSubmit={this.handleSubmit} className="loginRegister">
+          <form onSubmit={this.handleSubmit}>
             <div>
               <input
                 placeholder="Email"
@@ -77,20 +77,6 @@ class Register extends React.Component {
              <Link to="/"> Link to homepage </Link>
             </Button>
           </form>
-          {/* <Form>
-        <FormGroup row>
-          <Label for="exampleEmail" sm={2}>Email</Label>
-          <Col sm={8}>
-            <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="examplePassword" sm={2}>Password</Label>
-          <Col sm={10}>
-            <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
-          </Col>
-        </FormGroup>
-        </Form> */}
         </div>
       );
     }

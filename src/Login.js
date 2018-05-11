@@ -35,7 +35,7 @@ class Login extends React.Component {
     }
     if (this.state.redirect === false) {
       return (
-        <div>
+        <div className="loginRegister">
           <img src="https://cdn.store-assets.com/s/204782/f/477895.png" />
           <form onSubmit={this.handleSubmit} className="loginRegister">
             <div>

@@ -42,7 +42,6 @@ class Navbar extends React.Component {
       <div className="navbar  navbar-light">
         <NavbarBrand className="img">
           <img src="https://i.imgur.com/39QKayV.png" />
-          <Link to="/" />
         </NavbarBrand>
         <NavbarToggler onClick={this.toggle} className="hamburger-sm"/>
 
@@ -57,7 +56,7 @@ class Navbar extends React.Component {
             <input type="submit" />
           </form>
         </div>
-
+  
         {this.props.name !== "" && <li>{this.props.name}</li>}
 
         <div className="nav-links">
