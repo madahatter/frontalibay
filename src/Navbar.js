@@ -102,13 +102,80 @@ class Navbar extends React.Component {
                                 <Link to={"/register"}> Register </Link>
                             </Button>
                         </NavItem>
+            
+        <div className="navSearch">
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" value={this.state.searchInput} onChange={this.handleChange}/>
+            <input type="submit" />
+          </form>
+        </div>
+        {/* Render Registered Name */}
+        {/* {this.props.name !== "" && <div>{this.props.name}</div>}  */}
 
-                    </Nav>
-                </Collapse>
+        <div className="nav-links">
 
-            </div>
-        );
-    }
+                <Button bsClass="btn-block" outline color="warning">
+                  <Link to={"/cart"}>
+                    {this.props.name !== "" && <div>{this.props.name ? this.props.name : "Account"}</div>}
+                  </Link>
+                </Button>
+
+                <Button bsClass="btn-block" outline color="primary">
+                  <Link to={"/cart"}>
+                    Cart {this.props.cartItems > 0 ? this.props.cartItems : ""}
+                  </Link>
+                </Button>
+                <Button bsClass="btn-block" outline color="danger">
+                  <Link to={"/createlisting"}> Sell Item </Link>
+                </Button>
+                <Button bsClass="btn-block" outline color="success">
+                  <Link to={"/login"}> Login </Link>
+                </Button>
+                <Button bsClass="btn-block" outline color="danger">
+                  <Link to={"/register"}> Register </Link>
+                </Button>
+        </div>
+        <NavbarToggler onClick={this.toggle} className="hamburger"/>
+        <Collapse isOpen={this.state.isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+
+              <NavItem>
+                <Button bsClass="btn-block" style={{width:"100%", margin: "2px" }} outline color="warning">
+                  <Link to={"/cart"}>
+                    {this.props.name !== "" && <div>{this.props.name ? this.props.name : "Account"}</div>}
+                  </Link>
+                </Button>
+              </NavItem>
+            
+              <NavItem>
+                <Button bsClass="btn-block" style={{width:"100%", margin: "2px" }} outline color="primary">
+                  <Link to={"/cart"}> Cart {this.props.cartItems > 0 ? this.props.cartItems : ""} </Link>
+                </Button>
+              </NavItem>
+
+              <NavItem>
+                <Button bsClass="btn-block" style={{width:"100%", margin: "2px" }} outline color="danger">
+                  <Link to={"/createlisting"}> Sell Item </Link>
+                </Button>
+              </NavItem>
+              <NavItem>
+                <Button bsClass="btn-block" style={{width:"100%", margin: "2px" }} outline color="success">
+                  <Link to={"/login"}> Login </Link>
+                </Button>
+              </NavItem>
+              <NavItem>
+                <Button bsClass="btn-block" style={{width:"100%", margin: "2px" }} outline color="danger">
+                  <Link to={"/register"}> Register </Link>
+                </Button>
+              </NavItem>
+           
+          </Nav>
+        </Collapse>
+        </Nav>
+        </Collapse>
+      </div>
+    );
+  }
 }
 
 export default Navbar;
