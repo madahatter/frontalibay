@@ -2,11 +2,13 @@
   display: flex;
   align-items: center;
   background-color: rgba(255, 251, 251, 0.966);
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .navSearch {
   flex: 1;
-  margin-right: 35px;
 }
 
 .navSearch > form {
@@ -31,8 +33,12 @@ li{
   padding: 10px;
 }
 
-.img{
+/* .img{
   margin-right: 35px;
+} */
+
+.home-img {
+  max-width: 100%;
 }
 
 .card{
@@ -50,4 +56,10 @@ a{
 
 .hotdeal{
   text-align: center
+}
+
+.categories{
+  background-color: rgba(255, 251, 251, 0.966);
+  position: sticky;
+  top: 10px;
 }

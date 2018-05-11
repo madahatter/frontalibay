@@ -8,7 +8,7 @@ export default class Example extends React.Component {
     return (
         <Row>
           <Col>
-          <img src="https://picsum.photos/700/400" />
+          <img className="home-img" src="https://picsum.photos/700/400" />
           </Col>
         </Row>
     );
