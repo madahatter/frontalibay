@@ -14,24 +14,25 @@ import {
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Categories from "./Categories";
+import ListingCard from './ListingCard';
 
 class Cart extends React.Component {
   constructor() {
     super();
     this.state = {
       cartList: [],
-      itemID: "",
-      title: "abc",
-      price: "30$",
-      blurb: "lskdks",
-      imageName: "",
     };
   }
 
   getCart = () => {
-    fetch('/itemCart?userID=' + this.props.email)
-    .then((res)=> res.json())
-    .then(resJSON => {this.setState({cartList: resJSON})} )
+    fetch('/itemCart?userID=' + this.props.email, {
+      credentials: 'same-origin'
+    })
+    .then((res)=> res.text())
+    .then(resJSON => {
+      console.log(resJSON)
+      //this.setState({cartList: resJSON});
+    } )
   }
   componentDidMount(){
     this.getCart()

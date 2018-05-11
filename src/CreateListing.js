@@ -7,10 +7,10 @@ class CreateListing extends React.Component {
             img: "",
             titleInput: "",
             descriptionInput: "",
-            category: ""
+            category: "",
         };
     }
-
+   
     handleTitleChange = (event) => {
         this.setState({titleInput: event.target.value})
     }
@@ -22,13 +22,14 @@ class CreateListing extends React.Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state)
         fetch('/createListing', {
             method: 'POST',
             body: JSON.stringify({
                 title: this.state.titleInput,
                 description: this.state.descriptionInput,
-                img: this.state.img
+                img: this.state.img,
+                category: this.state.category,
+                email: this.props.email
             })
         })
         .then(res => res.json())
@@ -56,6 +57,7 @@ class CreateListing extends React.Component {
             <input type="text" placeholder="Title" value={this.state.titleInput} onChange={this.handleTitleChange}/>
             <input type="text" placeholder="Description" value={this.state.descriptionInput} onChange={this.handleDescChange}/>
             <select name="Categories" onChange={this.handleCatChange}>
+                <option value="">--choose a category--</option>
                 <option value="Phones and Accessories">Phones and Accessories</option>
                 <option value="Jewelry">Jewelry and Watches</option>
                 <option value="Consumer Electronics">Consumer Electronics</option>
