@@ -60,23 +60,23 @@ class Navbar extends React.Component {
         </div>
 
         <div className="nav-links">
-            <Button bsClass="btn-block" outline color="warning">
+          <Button bsClass="btn-block" outline color="warning">
             <Link to={"/buyer"}>
                 <div>{this.props.name !== "" ? this.props.name : "Account"}</div>
             </Link>
           </Button>
-          <Button bsClass="btn-block" outline color="warning">
+          <Button bsClass="btn-block" outline color="primary">
             <Link to={"/cart"}>
               Cart {this.props.cartItems > 0 ? this.props.cartItems : ""}
             </Link>
           </Button>
-          <Button bsClass="btn-block" outline color="primary">
+          <Button bsClass="btn-block" outline color="danger">
             <Link to={"/createlisting"}> Sell Item </Link>
           </Button>
-          <Button bsClass="btn-block" outline color="danger">
+          <Button bsClass="btn-block" outline color="success">
             <Link to={"/login"}> Login </Link>
           </Button>
-          <Button bsClass="btn-block" outline color="success">
+          <Button bsClass="btn-block" outline color="danger">
             <Link to={"/register"}> Register </Link>
           </Button>
         </div>
@@ -85,72 +85,56 @@ class Navbar extends React.Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <Button
-                bsClass="btn-block"
-                style={{ width: "100%", margin: "2px" }}
-                outline
-                color="warning"
-              >
+              <Button bsClass="btn-block" style={{ width: "100%", margin: "2px" }} outline color="warning">
+                <Link to={"/buyer"}>
+                  <div>{this.props.name !== "" ? this.props.name : "Account"}</div>
+                </Link>
+              </Button>
+            </NavItem>
+            <NavItem>
+              <Button bsClass="btn-block" style={{ width: "100%", margin: "2px" }} outline color="primary">
                 <Link to={"/cart"}>
                   Cart {this.props.cartItems > 0 ? this.props.cartItems : ""}
                 </Link>
               </Button>
             </NavItem>
             <NavItem>
-              <Button
-                bsClass="btn-block"
-                style={{ width: "100%", margin: "2px" }}
-                outline
-                color="primary"
-              >
+              <Button bsClass="btn-block" style={{ width: "100%", margin: "2px" }} outline color="danger">
                 <Link to={"/createlisting"}> Sell Item </Link>
               </Button>
             </NavItem>
             <NavItem>
-              <Button
-                bsClass="btn-block"
-                style={{ width: "100%", margin: "2px" }}
-                outline
-                color="danger"
-              >
+              <Button bsClass="btn-block" style={{ width: "100%", margin: "2px" }} outline color="success">
                 <Link to={"/login"}> Login </Link>
               </Button>
             </NavItem>
             <NavItem>
-              <Button
-                bsClass="btn-block"
-                style={{ width: "100%", margin: "2px" }}
-                outline
-                color="success"
-              >
+              <Button bsClass="btn-block" style={{ width: "100%", margin: "2px" }} outline color="danger">
                 <Link to={"/register"}> Register </Link>
               </Button>
             </NavItem>
 
-            <div className="nav-links">
+             <div className="nav-links">
               <Button bsClass="btn-block" outline color="warning">
-                <Link to={"/cart"}>
-                  <div>
-                    {this.props.name === "" ? "Account" : this.props.name}
-                  </div>
+                <Link to={"/buyer"}>
+                  <div>{this.props.name !== "" ? this.props.name : "Account"}</div>
                 </Link>
-              </Button>
-
-              <Button bsClass="btn-block" outline color="primary">
-                <Link to={"/cart"}>
+               </Button>
+               <Button bsClass="btn-block" outline color="primary">
+                 <Link to={"/cart"}>
                   Cart {this.props.cartItems > 0 ? this.props.cartItems : ""}
-                </Link>
-              </Button>
-              <Button bsClass="btn-block" outline color="danger">
-                <Link to={"/createlisting"}> Sell Item </Link>
-              </Button>
-              <Button bsClass="btn-block" outline color="success">
-                <Link to={"/login"}> Login </Link>
-              </Button>
-              <Button bsClass="btn-block" outline color="danger">
-                <Link to={"/register"}> Register </Link>
-              </Button>
-            </div>
+                 </Link>
+               </Button>
+               <Button bsClass="btn-block" outline color="danger">
+                 <Link to={"/createlisting"}> Sell Item </Link>
+               </Button>
+               <Button bsClass="btn-block" outline color="success">
+                 <Link to={"/login"}> Login </Link>
+               </Button>
+               <Button bsClass="btn-block" outline color="danger">
+                 <Link to={"/register"}> Register </Link>
+               </Button>
+             </div>
           </Nav>
         </Collapse>
       </div>
