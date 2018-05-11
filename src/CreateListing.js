@@ -7,10 +7,10 @@ class CreateListing extends React.Component {
             img: "",
             titleInput: "",
             descriptionInput: "",
-            category: ""
+            category: "",
         };
     }
-
+   
     handleTitleChange = (event) => {
         this.setState({titleInput: event.target.value})
     }
@@ -22,13 +22,14 @@ class CreateListing extends React.Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state)
         fetch('/createListing', {
             method: 'POST',
             body: JSON.stringify({
                 title: this.state.titleInput,
                 description: this.state.descriptionInput,
-                img: this.state.img
+                img: this.state.img,
+                category: this.state.category,
+                email: this.props.email
             })
         })
         .then(res => res.json())

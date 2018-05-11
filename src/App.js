@@ -35,7 +35,7 @@ class App extends React.Component {
       credentials: 'same-origin'
     })
     .then(res => res.json())
-    .then(res => this.setState({cartItems: res.cartItems}))
+    .then(res => {console.log(res); this.setState({cartItems: res.cartItems}) });
 
   }
   setEmail = (email, name) => {
@@ -107,7 +107,7 @@ class App extends React.Component {
   }
 
   renderCreateListing = (routerData) => {
-    return this.state.email ? <CreateListing historyPush = {routerData.history.push}/> : <Redirect to="/login"/>;
+    return this.state.email ? <CreateListing historyPush = {routerData.history.push} email={this.state.email}/> : <Redirect to="/login"/>;
   }
 
   render() {
