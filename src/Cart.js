@@ -25,7 +25,7 @@ class Cart extends React.Component {
   }
 
   getCart = () => {
-    fetch('/itemCart?userID=' + this.props.sessionID, {
+    fetch('/itemCart', {
       credentials: 'same-origin'
     })
     .then((res)=> res.json())

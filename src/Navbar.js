@@ -12,6 +12,7 @@ class Navbar extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.search(this.state.searchInput);
+    this.setState({searchInput: ""})
   };
   handleChange = event => {
     this.setState({ searchInput: event.target.value });
