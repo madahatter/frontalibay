@@ -21,20 +21,24 @@ class ListingCard extends React.Component {
     return (
         <div>
           {/* <img src={'/' + this.props.imageName}/>
-          <div><Link to={'/itemDetails/' + this.props.itemID}>{this.props.title}</Link> <button onClick={this.handleClick}>Add to cart</button></div>
-          <div>{this.props.blurb}</div>
-          <div>{this.props.price}</div>
-          <div>{this.props.sellerID}</div>
-          <div>{this.props.category}</div> */}
+           <div><Link to={'/itemDetails/' + this.props.itemID}>{this.props.title}</Link> <button onClick={this.handleClick}>Add to cart</button></div>
+           <div>{this.props.blurb}</div>
+           <div>{this.props.price}</div>
+           <div>{this.props.sellerID}</div>
+           <div>{this.props.category}</div> */}
 
-          <Card className="card">
-            <CardImg src={'/' + this.props.imageName}/>
+          <Card>
+            <div className="listingMainDiv">
+            <div className="imgDiv">
+              <img className="listingImg" src={'/' + this.props.imageName}/>
+            </div>
+            </div>
             <CardBody>
               <CardTitle><Link to={'/itemDetails/' + this.props.itemID}>{this.props.title}</Link></CardTitle>
-              <CardText>{this.props.blurb}</CardText>
-              <CardText>{this.props.price}</CardText>
-              <CardText>{this.props.sellerID}</CardText>
-              <CardText>{this.props.category}</CardText>
+              <CardText>Description: {this.props.blurb}</CardText>
+              <CardText>Price: {this.props.price}$</CardText>
+              <CardText>SellerID: {this.props.sellerID}</CardText>
+              <CardText>Category: {this.props.category}</CardText>
               <Button>
                   <Link to="/sellerinfo/:sellerId">Seller's info</Link>
               </Button>

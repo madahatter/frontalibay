@@ -51,7 +51,7 @@ class CreateListing extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="mainContent">
         <form onSubmit={this.handleSubmit}>
         <input type="number" placeholder="9.99" step="1.00" min="0"/>
             <input type="text" placeholder="Title" value={this.state.titleInput} onChange={this.handleTitleChange}/>

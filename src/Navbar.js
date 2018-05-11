@@ -38,6 +38,7 @@ class Navbar extends React.Component {
     this.setState({ searchInput: event.target.value });
   };
   render() {
+    console.log(this.props)
     return (
       <div className="navbar  navbar-light">
         <NavbarBrand>
@@ -51,14 +52,12 @@ class Navbar extends React.Component {
             <input type="submit" />
           </form>
         </div>
-        {/* Render Registered Name */}
-        {/* {this.props.name !== "" && <div>{this.props.name}</div>}  */}
 
         <div className="nav-links">
 
                 <Button bsClass="btn-block" outline color="warning">
                   <Link to={"/cart"}>
-                    {this.props.name !== "" && <div>{this.props.name ? this.props.name : "Account"}</div>}
+                   <div> { this.props.name === "" ? "Account" : this.props.name }</div>
                   </Link>
                 </Button>
 
@@ -84,7 +83,7 @@ class Navbar extends React.Component {
               <NavItem>
                 <Button bsClass="btn-block" style={{width:"100%", margin: "2px" }} outline color="warning">
                   <Link to={"/cart"}>
-                    {this.props.name !== "" && <div>{this.props.name ? this.props.name : "Account"}</div>}
+                    Account {this.props.name !== "" && <div>{this.props.name}</div>}
                   </Link>
                 </Button>
               </NavItem>
