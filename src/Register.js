@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, BrowserRouter, Redirect, Link } from "react-router-dom";
+import {Button, Col, Form, FormGroup, Label, Input, FormText} from 'reactstrap'
 import { register } from "./requests.js";
 
 class Register extends React.Component {
@@ -47,7 +48,7 @@ class Register extends React.Component {
       return (
         <div>
           <img src="https://cdn.store-assets.com/s/204782/f/477895.png" />
-          <form onSubmit={this.handleSubmit} className="loginRegister">
+          {/* <form onSubmit={this.handleSubmit} className="loginRegister">
             <div>
               <input
                 placeholder="Email"
@@ -72,8 +73,24 @@ class Register extends React.Component {
             <div>
               <input type="submit" />
             </div>
-            <Link to="/"> Link to homepage </Link>
-          </form>
+            <Button outline color="primary">
+             <Link to="/"> Link to homepage </Link>
+            </Button>
+          </form> */}
+          <Form>
+        <FormGroup row>
+          <Label for="exampleEmail" sm={2}>Email</Label>
+          <Col sm={10}>
+            <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label for="examplePassword" sm={2}>Password</Label>
+          <Col sm={10}>
+            <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+          </Col>
+        </FormGroup>
+        </Form>
         </div>
       );
     }
