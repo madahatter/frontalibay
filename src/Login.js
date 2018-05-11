@@ -36,26 +36,16 @@ class Login extends React.Component {
     if (this.state.redirect === false) {
       return (
         <div>
-          <img src="https://cdn.store-assets.com/s/204782/f/477895.png" />
-          <form onSubmit={this.handleSubmit} className="loginRegister">
+          <img className="bigLogo" src="https://i.imgur.com/39QKayV.png" />
+          <form onSubmit={this.handleSubmit}>
             <div>
-              <input
-                type="text"
-                value={this.state.emailInput}
-                placeholder="Email"
-                onChange={this.handleEmail}
-              />
+              <input className="loginRegister" type="text" value={this.state.emailInput} placeholder="Email" onChange={this.handleEmail}/>
             </div>
-            <input
-              type="password"
-              value={this.state.passwordInput}
-              placeholder="Password"
-              onChange={this.handlePassword}
-            />
-            <div>
-              <input type="submit" />
+            <input className="loginRegister" type="password" value={this.state.passwordInput} placeholder="Password" onChange={this.handlePassword}/>
+            <div className="loginRegister">
+              <input className="loginRegister" type="submit" />
             </div>
-            <Button outline color="primary">
+            <Button className="loginRegister" outline color="primary">
               <Link to={"/"}> Link to homepage </Link>
             </Button>
           </form>

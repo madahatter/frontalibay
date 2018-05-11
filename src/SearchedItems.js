@@ -6,9 +6,9 @@ export default class SearchedItems extends React.Component {
   
   render(){
     return(
-      <ul>
+      <div>
         {this.props.searchResults.map(item => <ListingCard {...item} addCartItem={this.props.addCartItem} />)}
-      </ul>
+      </div>
     )
   }
 }

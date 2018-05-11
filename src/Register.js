@@ -46,22 +46,22 @@ class Register extends React.Component {
     }
     if (this.state.redirect === false) {
       return (
-        <div className="loginRegister">
-          <img className="bigLogo" src="https://cdn.store-assets.com/s/204782/f/477895.png" />
+        <div>
+          <img className="bigLogo" src="https://i.imgur.com/39QKayV.png" />
           <form onSubmit={this.handleSubmit}>
             <div>
-              <input placeholder="Email" type="email" onChange={this.handleEmail}/>
+              <input className="loginRegister" placeholder="Email" type="email" onChange={this.handleEmail}/>
             </div>
             <div>
-              <input placeholder="Name" type="text" onChange={this.handleName}/>
+              <input className="loginRegister" placeholder="Name" type="text" onChange={this.handleName}/>
             </div>
             <div>
-              <input placeholder="Password" type="password" onChange={this.handlePassword}/>
+              <input className="loginRegister" placeholder="Password" type="password" onChange={this.handlePassword}/>
             </div>
             <div>
-              <input type="submit" />
+              <input className="loginRegister" type="submit" />
             </div>
-            <Button outline color="primary">
+            <Button className="loginRegister" outline color="primary">
              <Link to="/"> Link to homepage </Link>
             </Button>
           </form>

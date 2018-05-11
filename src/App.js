@@ -17,6 +17,7 @@ import Confirmation from './Confirmation';
 import Checkout from './Checkout';
 import './App.css';
 import CreateListing from './CreateListing.js'
+import Buyer from './Buyer'
 
 
 class App extends React.Component {
@@ -112,18 +113,20 @@ class App extends React.Component {
     return this.state.email ? <CreateListing historyPush = {routerData.history.push} email={this.state.email}/> : <Redirect to="/login"/>;
   }
 
+  renderBuyerPurchaseHistory = (routerData) => {
+    return(<Buyer/>)
+  }
+
   render() {
     return (
       <div>
-          <div fluid>
+          <div>
             <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderNavbar} />
             <div>
               <div className="categoriesDiv">
                 <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderCategories} />
               </div>
               <div className="mainContent">
-                <Route exact path='/login' render={this.renderLogin} />
-                <Route exact path='/register' render={this.renderRegister} />
                 <Route exact path='/' render={this.renderHome} />
                 <Route exact path='/cart' render={this.renderCart} />
                 <Route exact path='/itemsbySeller/:sellerID' render={this.renderSellerInfo} />
@@ -132,6 +135,11 @@ class App extends React.Component {
                 <Route exact path='/checkout' render={this.renderCheckout}/>
                 <Route exact path='/itemdetails/:itemID' render={this.renderItemDetails} />
                 <Route exact path='/createlisting' render={this.renderCreateListing} />
+                <Route exact path='/buyer' render={this.renderBuyerPurchaseHistory}/>
+              </div>
+              <div className="loginregisterpage">
+                <Route exact path='/login' render={this.renderLogin} />
+                <Route exact path='/register' render={this.renderRegister} />
               </div>
             </div>
           </div>
