@@ -30,8 +30,8 @@ export default class Example extends React.Component {
   render() {
     return (
 
-        <div>
-          <UncontrolledCarousel items={this.state.listings}/>
+        <div >
+          <UncontrolledCarousel className="frontCarousel" items={this.state.listings}/>
         </div>
 
     );

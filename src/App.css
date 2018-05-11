@@ -84,14 +84,25 @@ a{
 
 .mainContent{
   display: inline-block;
-  border: 1px solid black;
-  max-width: 500px;
-  max-height: 300px
+  width: 450px;
+  height: 250px;
+  object-fit:scale-down
+
 }
 
 .loginregisterpage{
   margin: 0 auto;
   display: block;
+}
+
+.frontCarousel{
+  position: relative;
+  float: left;
+  width:  450px;
+  height: 250px;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
 }
 
 .homeBody{
