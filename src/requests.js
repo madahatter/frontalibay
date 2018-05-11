@@ -2,6 +2,7 @@
 function login(email, password, cb) {
     return fetch('/login', {
         method: 'POST',
+        credentials: 'same-origin',
         body: JSON.stringify({
             email,
             password
@@ -33,6 +34,18 @@ function addToCart(itemID) {
 
         .then(res => res.json())
 }
+
+function removeFromCart(itemID) {
+    return fetch('/addToCart', {
+        method: 'POST',
+        credentials: 'same-origin',
+        body: JSON.stringify({
+            itemID
+        })
+    })
+        .then(res => res.json())
+}
+
 function featuredImages() {
     return fetch('/featuredImages', {
         method: 'GET'
@@ -71,14 +84,5 @@ function buy(email) {
         .then(res => res.json())
 }
 
-function removeFromCart(email, itemID) {
-    return fetch('/addToCart', {
-        method: 'POST',
-        body: JSON.stringify({
-            email,
-            itemID
-        })
-    })
-        .then(res => res.json())
-}
+
 export { login, register, createListing, featuredImages, buy, addToCart, removeFromCart, search, };
