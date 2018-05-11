@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, BrowserRouter, Redirect, Link } from "react-router-dom";
-import {Button, Col, Form, FormGroup, Label, Input, FormText} from 'reactstrap'
+import { Button, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import { register } from "./requests.js";
 
 class Register extends React.Component {
@@ -74,7 +74,7 @@ class Register extends React.Component {
               <input type="submit" />
             </div>
             <Button outline color="primary">
-             <Link to="/"> Link to homepage </Link>
+              <Link to="/"> Link to homepage </Link>
             </Button>
           </form>
           {/* <Form>

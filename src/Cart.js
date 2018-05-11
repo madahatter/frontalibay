@@ -51,7 +51,7 @@ class Cart extends React.Component {
                   <CardText>{det.blurb}</CardText>
                   <CardText>{det.price}</CardText>
                   <Button>
-                    <Link to="/sellerinfo/:sellerId">Seller's info</Link>
+                    <Link to={"/itemsbySeller/" + det.sellerID}>Seller's info</Link>
                   </Button>
                 </CardBody>
                 </Card>
@@ -63,7 +63,7 @@ class Cart extends React.Component {
               <Link to="/"> Link to homepage </Link>
             </Button>
             <Button outline color="primary">
-              <Link to="/cart/checkout"> Checkout </Link>
+              <Link to={"/cart/checkout/" + this.props.email}> Checkout </Link>
             </Button>
         </div>
     );

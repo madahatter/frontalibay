@@ -20,16 +20,17 @@ export default class ItemDetails extends React.Component {
 
   componentDidMount() {
     fetch('/itemDetails?itemID=' + this.props.itemID)
-      .then(res  => res.text())
-      .then(res => { 
+      .then(res => res.text())
+      .then(res => {
         //console.log(res)
-        this.setState({ 
-          imageName: JSON.parse(res).imageName ,  
-          item : JSON.parse(res), 
-          title: JSON.parse(res).title, 
-          description: JSON.parse(res).blurb, 
-          category: JSON.parse(res).category }) 
+        this.setState({
+          imageName: JSON.parse(res).imageName,
+          item: JSON.parse(res),
+          title: JSON.parse(res).title,
+          description: JSON.parse(res).blurb,
+          category: JSON.parse(res).category
         })
+      })
   }
 
   render() {
@@ -37,14 +38,14 @@ export default class ItemDetails extends React.Component {
       <div>
         <Row>
           <Col xs={6} md={6}>
-          <div>
-          {this.state.title ? <h1> {this.state.title} </h1> : null}
-          {this.state.description ? <h2> {this.state.description} </h2> : null}
-          </div>
-          
+            <div>
+              {this.state.title ? <h1> {this.state.title} </h1> : null}
+              {this.state.description ? <h2> {this.state.description} </h2> : null}
+            </div>
+
 
             <div>
-              {this.state.imageName ? <img src={'/' + this.state.imageName}/> :null}
+              {this.state.imageName ? <img src={'/' + this.state.imageName} /> : null}
             </div>
           </Col>
         </Row>

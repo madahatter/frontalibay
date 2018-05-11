@@ -30,8 +30,8 @@ function addToCart(itemID) {
             itemID,
         })
     })
-  
-   .then(res => res.json())
+
+        .then(res => res.json())
 }
 function featuredImages() {
     return fetch('/featuredImages', {
@@ -45,7 +45,7 @@ function search(searchTerm, opts = {}) {
 
     console.log(`/search?terms=${terms}&category=${opts.category ? opts.category : false}`)
     return fetch(`/search?terms=${terms}&category=${opts.category ? opts.category : false}`)
-    .then(res => res.json())
+        .then(res => res.json())
 }
 
 function createListing(email, title, description, image, category) {
@@ -62,13 +62,11 @@ function createListing(email, title, description, image, category) {
         .then(res => res.json())
 }
 
-function buy(email, itemID) {
+function buy(email) {
     return fetch('/buy', {
         method: 'POST',
-        body: JSON.stringify({
-            email,
-            itemID
-        })
+        credentials: 'same-origin',
+        body: JSON.stringify({ email })
     })
         .then(res => res.json())
 }

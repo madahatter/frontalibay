@@ -14,12 +14,12 @@ class SellerInfo extends React.Component {
   }
   componentDidMount() {
     fetch('/itemsbySeller?sellerID=' + this.props.sellerID)
-    .then(res => res.json())
-    .then(res => {this.setState({items: res})})
+      .then(res => res.json())
+      .then(res => { this.setState({ items: this.state.items.concat(res) }) })
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     console.log(this.state.items)
     return (
       <div>
