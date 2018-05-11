@@ -5,6 +5,7 @@ class Confirmation extends React.Component {
     return (
       <div>
         <div>
+          Confirmation Page
         </div>
       </div>
     );

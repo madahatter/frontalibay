@@ -35,8 +35,8 @@ class App extends React.Component {
     fetch('/session', {
       credentials: 'same-origin'
     })
-    .then(res => res.json())
-    .then(res => {console.log(res); this.setState({cartItems: res.cartItems}) });
+      .then(res => res.json())
+      .then(res => { console.log(res); this.setState({ cartItems: res.cartItems }) });
 
   }
   setEmail = (email, name) => {
@@ -45,8 +45,7 @@ class App extends React.Component {
 
   addCartItem = (itemID) => {
     addToCart(itemID)
-    .then(res => 
-      {
+      .then(res => {
         return this.setState({
           cartItems: this.state.cartItems.concat(res.itemID)
         })
@@ -66,24 +65,24 @@ class App extends React.Component {
   }
 
   renderCart = () => {
-    return (<Cart cartItems={this.state.cartItems} />)
+    return (<Cart cartItems={this.state.cartItems} email={this.state.email} />)
   }
 
   renderSellerInfo = (routerData) => {
     let sellerID = routerData.match.params.sellerID;
-    return (<SellerInfo sellerID={sellerID} addCartItem={this.addCartItem}/>)
+    return (<SellerInfo sellerID={sellerID} addCartItem={this.addCartItem} />)
   }
 
   renderSearchedItems = () => {
-    return (<SearchedItems searchResults={this.state.searchResults} addCartItem={this.addCartItem}/>)
+    return (<SearchedItems searchResults={this.state.searchResults} addCartItem={this.addCartItem} />)
   }
 
   renderNavbar = () => {
-    return <Navbar email={this.state.email} name={this.state.name} search={this.search} cartItems={this.state.cartItems.length}/>;
+    return <Navbar email={this.state.email} name={this.state.name} search={this.search} cartItems={this.state.cartItems.length} />;
   }
 
   renderCategories = (routerData) => {
-    return <Categories search={this.search} routerData={routerData}/>
+    return <Categories search={this.search} routerData={routerData} />
   }
 
   setSearchResults = (results) => {
@@ -91,26 +90,26 @@ class App extends React.Component {
   }
   search = (searchTerm, opts) => {
     search(searchTerm, opts)
-    .then(res => {
+      .then(res => {
         this.setSearchResults(res);
-        if(this.props.location.pathname !== '/searcheditems') this.props.history.push('/searcheditems');
-    });
+        if (this.props.location.pathname !== '/searcheditems') this.props.history.push('/searcheditems');
+      });
   }
   renderItemDetails = (routerData) => {
     let itemID = routerData.match.params.itemID
-    return (<ItemDetails itemID={itemID} addCartItem={this.addCartItem}/>)
+    return (<ItemDetails itemID={itemID} addCartItem={this.addCartItem} />)
   }
 
   renderConfirmationPage = () => {
-    return(<Confirmation/>)
+    return (<Confirmation />)
   }
 
   renderCheckout = (routerData) => {
-    return(<Checkout/>)
+    return (<Checkout cartItems={this.state.cartItems} email={this.state.email}/>)
   }
 
   renderCreateListing = (routerData) => {
-    return this.state.email ? <CreateListing historyPush = {routerData.history.push} email={this.state.email}/> : <Redirect to="/login"/>;
+    return this.state.email ? <CreateListing historyPush={routerData.history.push} email={this.state.email} /> : <Redirect to="/login" />;
   }
 
   renderBuyerPurchaseHistory = (routerData) => {
@@ -132,7 +131,7 @@ class App extends React.Component {
                 <Route exact path='/itemsbySeller/:sellerID' render={this.renderSellerInfo} />
                 <Route exact path='/searcheditems' render={this.renderSearchedItems} />
                 <Route exact path='/confirmation' render={this.renderConfirmationPage}/>
-                <Route exact path='/checkout' render={this.renderCheckout}/>
+                <Route exact path='/cart/checkout' render={this.renderCheckout}/>
                 <Route exact path='/itemdetails/:itemID' render={this.renderItemDetails} />
                 <Route exact path='/createlisting' render={this.renderCreateListing} />
                 <Route exact path='/buyer' render={this.renderBuyerPurchaseHistory}/>

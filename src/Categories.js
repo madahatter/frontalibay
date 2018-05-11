@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import {Button, Row, Col} from 'reactstrap'
+import { Button, Row, Col } from 'reactstrap'
 
 class Categories extends React.Component {
   handleClick = (searchTerm) => {
     // console.log(searchTerm)
-    this.props.search(searchTerm, {category: true});
+    this.props.search(searchTerm, { category: true });
   }
   render() {
     return (

@@ -10,15 +10,15 @@ class CreateListing extends React.Component {
             category: "",
         };
     }
-   
+
     handleTitleChange = (event) => {
-        this.setState({titleInput: event.target.value})
+        this.setState({ titleInput: event.target.value })
     }
     handleCatChange = (event) => {
-        this.setState({category: event.target.value})
+        this.setState({ category: event.target.value })
     }
     handleDescChange = (event) => {
-        this.setState({descriptionInput: event.target.value})
+        this.setState({ descriptionInput: event.target.value })
     }
     handleSubmit = (event) => {
         event.preventDefault();
@@ -32,21 +32,22 @@ class CreateListing extends React.Component {
                 email: this.props.email
             })
         })
-        .then(res => res.json())
-        .then(res => {
-            console.log(res)
-            if(res.success) {
-                this.props.historyPush('/itemdetails/' + res.itemID)
-            }
-        })
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+                if (res.success) {
+                    this.props.historyPush('/itemdetails/' + res.itemID)
+                }
+            })
+
     }
 
     handleImageUpload = (x) => {
         var filename = x.name;
         var fileExtension = filename.split('.').pop();
-        fetch('/uploadImg?extension=' + fileExtension,{method: "POST", body: x}) 
-        .then(res => res.json())
-        .then((res) => this.setState({img: res.imageName})) 
+        fetch('/uploadImg?extension=' + fileExtension, { method: "POST", body: x })
+            .then(res => res.json())
+            .then((res) => this.setState({ img: res.imageName }))
     }
 
   render() {
