@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, BrowserRouter, Redirect, Link } from "react-router-dom";
-import {Button, Col, Form, FormGroup, Label, Input, FormText} from 'reactstrap'
+import {Button} from 'reactstrap'
 import { register } from "./requests.js";
 
 class Register extends React.Component {
@@ -47,28 +47,16 @@ class Register extends React.Component {
     if (this.state.redirect === false) {
       return (
         <div className="loginRegister">
-          <img src="https://cdn.store-assets.com/s/204782/f/477895.png" />
+          <img className="bigLogo" src="https://cdn.store-assets.com/s/204782/f/477895.png" />
           <form onSubmit={this.handleSubmit}>
             <div>
-              <input
-                placeholder="Email"
-                type="email"
-                onChange={this.handleEmail}
-              />
+              <input placeholder="Email" type="email" onChange={this.handleEmail}/>
             </div>
             <div>
-              <input
-                placeholder="Name"
-                type="text"
-                onChange={this.handleName}
-              />
+              <input placeholder="Name" type="text" onChange={this.handleName}/>
             </div>
             <div>
-              <input
-                placeholder="Password"
-                type="password"
-                onChange={this.handlePassword}
-              />
+              <input placeholder="Password" type="password" onChange={this.handlePassword}/>
             </div>
             <div>
               <input type="submit" />

@@ -7,8 +7,6 @@ class Confirmation extends React.Component {
     return (
       <div>
         <Row>
-          <Col>1</Col>
-          <Col>2</Col>
         </Row>
       </div>
     );

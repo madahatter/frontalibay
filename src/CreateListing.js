@@ -39,7 +39,6 @@ class CreateListing extends React.Component {
                 this.props.historyPush('/itemdetails/' + res.itemID)
             }
         })
-        
     }
 
     handleImageUpload = (x) => {

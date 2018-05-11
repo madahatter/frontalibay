@@ -40,8 +40,8 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className="navbar  navbar-light">
-        <NavbarBrand className="img">
-          <img src="https://i.imgur.com/39QKayV.png" />
+        <NavbarBrand>
+          <Link to="/"><img src="https://i.imgur.com/39QKayV.png"/> </Link>
         </NavbarBrand>
         <NavbarToggler onClick={this.toggle} className="hamburger-sm"/>
 
