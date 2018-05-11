@@ -19,9 +19,9 @@ export default class Example extends React.Component {
       .then((res) => this.setState({
         listings: res.map((listing) => ({
           src: '/' + listing.imageName,
-          altText: listing.title,
+          altText: '',
           caption: '',
-          header: listing.title
+          header: ''
         }))
       }))
   }
@@ -30,8 +30,8 @@ export default class Example extends React.Component {
   render() {
     return (
 
-        <div>
-          <UncontrolledCarousel items={this.state.listings}/>
+        <div >
+          <UncontrolledCarousel className="frontCarousel" items={this.state.listings}/>
         </div>
 
     );

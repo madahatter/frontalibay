@@ -41,16 +41,18 @@ class Cart extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="card">
         <div>
           {this.state.cartList.map( det => (
-            <div className="cardbody">
-              <Card className="card">
-                <CardImg src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" />
+            <div className="card">
+              <Card>
+                <img src={'/' + det.imageName}/>
                 <CardBody>
-                  <CardTitle>{det.title}</CardTitle>
+                  <CardTitle><Link to={'/itemDetails/' + this.props.itemID}>{this.props.title}</Link></CardTitle>
                   <CardText>{det.blurb}</CardText>
                   <CardText>{det.price}</CardText>
+                  <CardText>{det.sellerID}</CardText>
+                  <CardText>{det.category}</CardText>
                   <Button>
                     <Link to={"/itemsbySeller/" + det.sellerID}>Seller's info</Link>
                   </Button>
