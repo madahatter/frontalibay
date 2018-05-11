@@ -48,7 +48,7 @@ class Register extends React.Component {
       return (
         <div>
           <img src="https://cdn.store-assets.com/s/204782/f/477895.png" />
-          {/* <form onSubmit={this.handleSubmit} className="loginRegister">
+          <form onSubmit={this.handleSubmit} className="loginRegister">
             <div>
               <input
                 placeholder="Email"
@@ -76,11 +76,11 @@ class Register extends React.Component {
             <Button outline color="primary">
              <Link to="/"> Link to homepage </Link>
             </Button>
-          </form> */}
-          <Form>
+          </form>
+          {/* <Form>
         <FormGroup row>
           <Label for="exampleEmail" sm={2}>Email</Label>
-          <Col sm={10}>
+          <Col sm={8}>
             <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
           </Col>
         </FormGroup>
@@ -90,7 +90,7 @@ class Register extends React.Component {
             <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
           </Col>
         </FormGroup>
-        </Form>
+        </Form> */}
         </div>
       );
     }
