@@ -28,9 +28,9 @@ class Cart extends React.Component {
     fetch('/itemCart?userID=' + this.props.sessionID, {
       credentials: 'same-origin'
     })
-    .then((res)=> res.text())
+    .then((res)=> res.json())
     .then(resJSON => {
-      //console.log(resJSON)
+      console.log(resJSON)
       this.setState({cartList: resJSON});
     } )
   }
