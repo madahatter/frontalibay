@@ -85,6 +85,8 @@ a{
 .mainContent{
   display: inline-block;
   border: 1px solid black;
+  max-width: 500px;
+  max-height: 300px
 }
 
 .loginregisterpage{
@@ -95,8 +97,8 @@ a{
 .homeBody{
   display: inline-block;
   margin-left: 10px;
-}
 
+}
 .loginRegister{
   margin: 0 auto;
   display: block;

@@ -29,11 +29,11 @@ export default class Example extends React.Component {
 
   render() {
     return (
-      <div className="homeBody">
+
         <div>
-          <UncontrolledCarousel items={this.state.listings} />
+          <UncontrolledCarousel items={this.state.listings}/>
         </div>
-      </div>
+
     );
   }
 }
