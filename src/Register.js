@@ -61,9 +61,6 @@ class Register extends React.Component {
             <div>
               <input className="loginRegister" type="submit" />
             </div>
-            <Button outline color="primary">
-              <Link to="/"> Link to homepage </Link>
-              </Button>
               <Button className="loginRegister" outline color="primary">
                 <Link to="/"> Link to homepage </Link>
               </Button>

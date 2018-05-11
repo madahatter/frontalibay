@@ -46,11 +46,6 @@ a{
   color: black
 }
 
-.categories{
-  position: sticky;
-  top: 10px;
-}
-
 .hamburger{
   display: none;
   margin-left: 10px;
@@ -83,11 +78,8 @@ a{
 }
 
 .mainContent{
-  display: inline-block;
-  width: 450px;
-  height: 250px;
-  object-fit:scale-down
-
+  max-width: 500px;
+  max-height: 300px
 }
 
 .loginregisterpage{
@@ -122,6 +114,39 @@ a{
   margin: 0 auto;
 }
 
+.itemsList{
+  width: auto;
+  display: inline-block;
+}
+
+/* 
+ListingCard CSS
+*/
+.listingImg{
+  width: 100%;
+  object-Fit: cover;
+}
+.listingMainDiv{
+  height: 220px;
+}
+.imgDiv{
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+
+/*
+Categories CSS
+*/
+.categoriesBtn{
+  width: 100%; 
+  margin-bottom: 3px;
+}
+.categories{
+  position: sticky;
+  top: 10px;
+}
+
 /* 
 Media queries used for screen size specific styling
 we will use the bootstrap breakpoints
@@ -149,6 +174,9 @@ we will use the bootstrap breakpoints
   .navbar > div {
     padding: 10px;
   }  
+  .ml-auto {
+    display: none;
+  }
   .hamburger {
     display: none;
   }
