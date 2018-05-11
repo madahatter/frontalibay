@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Categories from "./Categories";
 import ListingCard from './ListingCard';
+import TakeMoney from './TakeMoney.js';
 
 class Cart extends React.Component {
   constructor() {
@@ -59,12 +60,11 @@ class Cart extends React.Component {
           ))}
           </div>
    
-            <Button outline color="primary">
+            <Button className="btn btn-primary">
               <Link to="/"> Link to homepage </Link>
             </Button>
-            <Button outline color="primary">
-              <Link to={"/cart/checkout/" + this.props.email}> Checkout </Link>
-            </Button>
+            
+            <TakeMoney cartItems={this.props.cartItems} email={this.props.email}/>
         </div>
     );
   }

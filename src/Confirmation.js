@@ -6,7 +6,7 @@ class Confirmation extends React.Component {
   render() {
     return (
       <div>
-        Confirmation Page
+        <h1>Confirmation Page</h1>
       </div>
     );
   }

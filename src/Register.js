@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, BrowserRouter, Redirect, Link } from "react-router-dom";
-import { Button, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+import {Button} from 'reactstrap'
 import { register } from "./requests.js";
 
 class Register extends React.Component {
@@ -46,29 +46,17 @@ class Register extends React.Component {
     }
     if (this.state.redirect === false) {
       return (
-        <div>
-          <img src="https://cdn.store-assets.com/s/204782/f/477895.png" />
-          <form onSubmit={this.handleSubmit} className="loginRegister">
+        <div className="loginRegister">
+          <img className="bigLogo" src="https://cdn.store-assets.com/s/204782/f/477895.png" />
+          <form onSubmit={this.handleSubmit}>
             <div>
-              <input
-                placeholder="Email"
-                type="email"
-                onChange={this.handleEmail}
-              />
+              <input placeholder="Email" type="email" onChange={this.handleEmail}/>
             </div>
             <div>
-              <input
-                placeholder="Name"
-                type="text"
-                onChange={this.handleName}
-              />
+              <input placeholder="Name" type="text" onChange={this.handleName}/>
             </div>
             <div>
-              <input
-                placeholder="Password"
-                type="password"
-                onChange={this.handlePassword}
-              />
+              <input placeholder="Password" type="password" onChange={this.handlePassword}/>
             </div>
             <div>
               <input type="submit" />
@@ -77,20 +65,6 @@ class Register extends React.Component {
               <Link to="/"> Link to homepage </Link>
             </Button>
           </form>
-          {/* <Form>
-        <FormGroup row>
-          <Label for="exampleEmail" sm={2}>Email</Label>
-          <Col sm={8}>
-            <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="examplePassword" sm={2}>Password</Label>
-          <Col sm={10}>
-            <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
-          </Col>
-        </FormGroup>
-        </Form> */}
         </div>
       );
     }

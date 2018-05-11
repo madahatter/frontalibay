@@ -16,7 +16,8 @@ import ItemDetails from './ItemDetails';
 import Confirmation from './Confirmation';
 import Checkout from './Checkout';
 import './App.css';
-import CreateListing from './CreateListing.js'
+import CreateListing from './CreateListing.js';
+
 
 
 class App extends React.Component {
@@ -114,26 +115,26 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Container fluid>
-          <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderNavbar} />
-          <Row>
-            <Col xs={12} md={4}>
-              <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderCategories} />
-            </Col>
-            <Col xs={12} md={8}>
-              <Route exact path='/login' render={this.renderLogin} />
-              <Route exact path='/register' render={this.renderRegister} />
-              <Route exact path='/' render={this.renderHome} />
-              <Route exact path='/cart' render={this.renderCart} />
-              <Route exact path='/itemsbySeller/:sellerID' render={this.renderSellerInfo} />
-              <Route exact path='/searcheditems' render={this.renderSearchedItems} />
-              <Route exact path='/confirmation' render={this.renderConfirmationPage} />
-              <Route exact path='/cart/checkout' render={this.renderCheckout} />
-              <Route exact path='/itemdetails/:itemID' render={this.renderItemDetails} />
-              <Route exact path='/createlisting' render={this.renderCreateListing} />
-            </Col>
-          </Row>
-        </Container>
+          <div fluid>
+            <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderNavbar} />
+            <div>
+              <div className="categoriesDiv">
+                <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderCategories} />
+              </div>
+              <div className="mainContent">
+                <Route exact path='/login' render={this.renderLogin} />
+                <Route exact path='/register' render={this.renderRegister} />
+                <Route exact path='/' render={this.renderHome} />
+                <Route exact path='/cart' render={this.renderCart} />
+                <Route exact path='/itemsbySeller/:sellerID' render={this.renderSellerInfo} />
+                <Route exact path='/searcheditems' render={this.renderSearchedItems} />
+                <Route exact path='/confirmation' render={this.renderConfirmationPage}/>
+                <Route exact path='/cart/checkout' render={this.renderCheckout}/>
+                <Route exact path='/itemdetails/:itemID' render={this.renderItemDetails} />
+                <Route exact path='/createlisting' render={this.renderCreateListing} />
+              </div>
+            </div>
+          </div>
       </div >
     );
   }
