@@ -26,7 +26,8 @@ class App extends React.Component {
       email: "",
       name: "",
       searchResults: [],
-      cartItems: []
+      cartItems: [],
+      sessionID: ""
     }
   }
 
@@ -46,7 +47,10 @@ class App extends React.Component {
     addToCart(itemID, this.state.email)
     .then(res => 
       {
-        return this.setState({cartItems: this.state.cartItems.concat(res.itemID)})
+        return this.setState({
+          cartItems: this.state.cartItems.concat(res.itemID),
+          sessionID: res.sessionID
+        })
       })
   }
 
@@ -63,7 +67,7 @@ class App extends React.Component {
   }
 
   renderCart = () => {
-    return (<Cart cartItems={this.state.cartItems} email={this.state.email} />)
+    return (<Cart cartItems={this.state.cartItems} sessionID={this.state.sessionID} />)
   }
 
   renderSellerInfo = (routerData) => {

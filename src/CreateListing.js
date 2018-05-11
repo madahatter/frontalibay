@@ -54,6 +54,7 @@ class CreateListing extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+        <input type="number" placeholder="9.99" step="1.00" min="0"/>
             <input type="text" placeholder="Title" value={this.state.titleInput} onChange={this.handleTitleChange}/>
             <input type="text" placeholder="Description" value={this.state.descriptionInput} onChange={this.handleDescChange}/>
             <select name="Categories" onChange={this.handleCatChange}>
