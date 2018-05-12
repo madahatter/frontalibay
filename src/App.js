@@ -131,7 +131,7 @@ class App extends React.Component {
   }
 
   renderBuyerPurchaseHistory = (routerData) => {
-    return(<Buyer/>)
+    return(<Buyer email={this.state.email}/>)
   }
 
   render() {
