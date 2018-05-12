@@ -31,17 +31,6 @@ li{
   max-width: 100%;
 }
 
-.card{
-  width: auto;
-  display: inline-block;
-}
-
-.cardbody{
-  position: center;
-  border: 1px solid black;
-  display: inline-block;
-}
-
 a{
   color: black
 }
@@ -75,6 +64,7 @@ a{
 
 .categoriesDiv{
   display: inline-block;
+  margin-top: 10px;
 }
 
 .mainContent{
@@ -114,25 +104,17 @@ a{
   margin: 0 auto;
 }
 
-.itemsList{
-  width: auto;
-  display: inline-block;
+/* SearchedItems CSS */
+.listingCard{
+  display: flex;
 }
-
 /* 
 ListingCard CSS
 */
 .listingImg{
-  width: 100%;
-  object-Fit: cover;
-}
-.listingMainDiv{
-  height: 220px;
-}
-.imgDiv{
-  width: 300px;
-  height: 200px;
-  overflow: hidden;
+  width: 284px;
+  height: 177px;
+  flex-direction: column;
 }
 
 /*
@@ -141,10 +123,27 @@ Categories CSS
 .categoriesBtn{
   width: 100%; 
   margin-bottom: 3px;
+  flex-direction: column;
+  display: flex;
 }
 .categories{
-  position: sticky;
   top: 10px;
+  display: flex;
+}
+
+/* Cart CSS*/
+.card{
+  display: flex;
+  margin: 10px;
+}
+.cardImg{
+  width: 284px;
+  height: 177px;
+  flex-direction: column;
+}
+.cartBody{
+  display: block;
+  position: center;
 }
 
 /* 
