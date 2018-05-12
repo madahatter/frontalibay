@@ -64,15 +64,11 @@ class Cart extends React.Component {
           ))}
           </CardGroup>
           </div>
-<<<<<<< HEAD
         <div>
         <Button outline color="primary">
           <Link to="/"> Link to homepage </Link>
         </Button>
           {this.props.email ? <TakeMoney cartItems={this.props.cartItems} email={this.props.email} clearCartItems={this.props.clearCartItems}/> : null}
-=======
-            {this.props.email ? <TakeMoney cartItems={this.props.cartItems} email={this.props.email} clearCartItems={this.props.clearCartItems}/> : null}
->>>>>>> ed9b73339efa68d8f6574e3b652e2fc7324ab802
         </div>
       </div>
     );
