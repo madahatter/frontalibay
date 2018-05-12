@@ -40,7 +40,7 @@ class Navbar extends React.Component {
   };
   loginLogout = () => {
     if(this.props.name !== "") {
-     return <Link to={"/buyer"}>
+     return <Link to={"/allItemBuyer/" + this.props.email}>
       {this.props.name}
   </Link>
     } else {
@@ -96,9 +96,7 @@ class Navbar extends React.Component {
           <Nav className="ml-auto" navbar>
             <NavItem>
               <Button bsClass="btn-block" style={{ width: "100%", margin: "2px" }} outline color="warning">
-                <Link to={"/buyer"}>
-                  <div>{this.props.name !== "" ? this.props.name : "Account"}</div>
-                </Link>
+              <div> {this.loginLogout()} </div>
               </Button>
             </NavItem>
             <NavItem>
@@ -126,9 +124,7 @@ class Navbar extends React.Component {
 
              <div className="nav-links">
               <Button bsClass="btn-block" outline color="warning">
-                <Link to={"/buyer"}>
-                  <div>{this.props.name !== "" ? this.props.name : "Account"}</div>
-                </Link>
+              <div> {this.loginLogout()} </div>
                </Button>
                <Button bsClass="btn-block" outline color="primary">
                  <Link to={"/cart"}>

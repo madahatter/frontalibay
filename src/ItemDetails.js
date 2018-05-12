@@ -57,11 +57,6 @@ export default class ItemDetails extends React.Component {
           </Col>
           <Col>
             <Button>
-              <Link to="/"> Link to homepage </Link>
-            </Button>
-          </Col>
-          <Col>
-            <Button>
               <Link to="/cart/checkout/"> Add to Cart </Link>
             </Button>
           </Col>

@@ -131,7 +131,8 @@ class App extends React.Component {
   }
 
   renderBuyerPurchaseHistory = (routerData) => {
-    return(<Buyer/>)
+    let buyerID = routerData.match.params.buyerID
+    return(<Buyer email={this.state.email} buyerID={buyerID}/> )
   }
 
   render() {
@@ -152,7 +153,7 @@ class App extends React.Component {
                 <Route exact path='/cart/checkout' render={this.renderCheckout}/>
                 <Route exact path='/itemdetails/:itemID' render={this.renderItemDetails} />
                 <Route exact path='/createlisting' render={this.renderCreateListing} />
-                <Route exact path='/buyer' render={this.renderBuyerPurchaseHistory}/>
+                <Route exact path='/allItemBuyer/:buyerID' render={this.renderBuyerPurchaseHistory}/>
               </div>
               <div className="loginregisterpage">
                 <Route exact path='/login' render={this.renderLogin} />

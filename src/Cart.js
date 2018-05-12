@@ -9,7 +9,8 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  CardSubtitle
+  CardSubtitle,
+  CardGroup
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
@@ -42,30 +43,27 @@ class Cart extends React.Component {
   render() {
     return (
       <div className="card">
-        <div>
+        <div className="card">
           {this.state.cartList.map( det => (
             <div className="card">
-              <Card>
-                <img src={'/' + det.imageName}/>
-                <CardBody>
-                  <CardTitle><Link to={'/itemDetails/' + this.props.itemID}>{this.props.title}</Link></CardTitle>
-                  <CardText>{det.blurb}</CardText>
-                  <CardText>{det.price}</CardText>
-                  <CardText>{det.sellerID}</CardText>
-                  <CardText>{det.category}</CardText>
-                  <Button>
-                    <Link to={"/itemsbySeller/" + det.sellerID}>Seller's info</Link>
-                  </Button>
-                </CardBody>
-                </Card>
+              <CardGroup>
+                <Card>
+                  <img src={'/' + det.imageName}/>
+                  <CardBody>
+                    <CardTitle><Link to={'/itemDetails/' + this.props.itemID}>{this.props.title}</Link></CardTitle>
+                    <CardText>{det.blurb}</CardText>
+                    <CardText>{det.price}</CardText>
+                    <CardText>{det.sellerID}</CardText>
+                    <CardText>{det.category}</CardText>
+                    <Button>
+                      <Link to={"/itemsbySeller/" + det.sellerID}>Seller's info</Link>
+                    </Button>
+                  </CardBody>
+                  </Card>
+                </CardGroup>
             </div>
           ))}
           </div>
-   
-            <Button className="btn btn-primary">
-              <Link to="/"> Link to homepage </Link>
-            </Button>
-            
             {this.props.email ? <TakeMoney cartItems={this.props.cartItems} email={this.props.email} clearCartItems={this.props.clearCartItems}/> : null}
         </div>
     );
