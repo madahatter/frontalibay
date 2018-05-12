@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, BrowserRouter, Redirect, Link } from "react-router-dom";
 import { login } from "./requests.js";
-import { Button } from "reactstrap";
+import { Button,NavbarBrand } from "reactstrap";
 
 class Login extends React.Component {
   constructor() {
@@ -36,7 +36,11 @@ class Login extends React.Component {
     if (this.state.redirect === false) {
       return (
         <div>
-          <img className="bigLogo" src="https://i.imgur.com/39QKayV.png" />
+          <NavbarBrand className="img">
+          <Link to="/">
+            <img src="https://i.imgur.com/39QKayV.png" />
+          </Link>
+        </NavbarBrand>
           <form onSubmit={this.handleSubmit}>
             <div>
               <input className="loginRegister" type="text" value={this.state.emailInput} placeholder="Email" onChange={this.handleEmail}/>
