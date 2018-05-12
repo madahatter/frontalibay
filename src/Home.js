@@ -5,7 +5,7 @@ import { Register } from './Register';
 
 
 
-export default class Example extends React.Component {
+export default class Home extends React.Component {
   constructor() {
     super()
     this.state = {
