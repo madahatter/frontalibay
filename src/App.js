@@ -3,7 +3,7 @@ import { Route, Redirect, BrowserRouter, Link, withRouter } from 'react-router-d
 import pathToRegexp from 'path-to-regexp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'reactstrap';
-import { search, addToCart } from './requests.js';
+import { search, addToCart, removeFromCart } from './requests.js';
 import Home from './Home';
 import Login from './Login';
 import Register from './Register';
@@ -36,7 +36,10 @@ class App extends React.Component {
       credentials: 'same-origin'
     })
       .then(res => res.json())
-      .then(res => { console.log(res); this.setState({ cartItems: res.cartItems }) });
+      .then(res => {
+        console.log(res);
+        this.setState({ email: res.email, name: res.name, cartItems: res.cartItems });
+      });
 
   }
   setEmail = (email, name) => {
@@ -52,6 +55,21 @@ class App extends React.Component {
       })
   }
 
+  removeCartItem = (itemID) => {
+    removeFromCart(itemID)
+      .then(res => {
+        return this.setState({
+          cartItems: this.state.cartItems.filter((cartItem) => cartItem !== itemID)
+        })
+      })
+  }
+
+  clearCartItems = () => {
+    this.setState({
+      cartItems: []
+    })
+  }
+
   renderHome = () => {
     return (<Home email={this.state.email} name={this.state.name} setSearchResults={this.setSearchResults} />)
   }
@@ -65,7 +83,7 @@ class App extends React.Component {
   }
 
   renderCart = () => {
-    return (<Cart cartItems={this.state.cartItems} email={this.state.email} />)
+    return (<Cart cartItems={this.state.cartItems} email={this.state.email} clearCartItems={this.clearCartItems}/>)
   }
 
   renderSellerInfo = (routerData) => {

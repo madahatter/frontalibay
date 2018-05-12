@@ -16,9 +16,9 @@ export default class Home extends React.Component {
       .then((res) => this.setState({
         listings: res.map((listing) => ({
           src: '/' + listing.imageName,
-          altText: listing.title,
+          altText: '',
           caption: '',
-          header: listing.title
+          header: ''
         }))
       }))
   }
