@@ -20,7 +20,8 @@ class Navbar extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       searchInput: "",
-      isOpen: false
+      isOpen: false,
+      register: ''
     };
   }
 
@@ -37,6 +38,15 @@ class Navbar extends React.Component {
   handleChange = event => {
     this.setState({ searchInput: event.target.value });
   };
+  loginLogout = () => {
+    if(this.props.name !== "") {
+     return <Link to={"/buyer"}>
+      {this.props.name}
+  </Link>
+    } else {
+     return <Link to={"/register"}> Register </Link>
+    }
+  }
 
   render() {
     return (
@@ -61,9 +71,9 @@ class Navbar extends React.Component {
 
         <div className="nav-links">
           <Button bsClass="btn-block" outline color="warning">
-            <Link to={"/buyer"}>
-                <div>{this.props.name !== "" ? this.props.name : "Account"}</div>
-            </Link>
+
+               <div> {this.loginLogout()} </div>
+
           </Button>
           <Button bsClass="btn-block" outline color="primary">
             <Link to={"/cart"}>
