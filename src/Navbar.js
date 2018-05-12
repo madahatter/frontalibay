@@ -61,7 +61,7 @@ class Navbar extends React.Component {
 
         <div className="nav-links">
           <Button bsClass="btn-block" outline color="warning">
-            <Link to={"/buyer"}>
+            <Link to={"/allItemBuyer/" + this.props.email}>
                 <div>{this.props.name !== "" ? this.props.name : "Account"}</div>
             </Link>
           </Button>
@@ -86,7 +86,7 @@ class Navbar extends React.Component {
           <Nav className="ml-auto" navbar>
             <NavItem>
               <Button bsClass="btn-block" style={{ width: "100%", margin: "2px" }} outline color="warning">
-                <Link to={"/buyer"}>
+                <Link to={"/allItemBuyer/" + this.props.email}>
                   <div>{this.props.name !== "" ? this.props.name : "Account"}</div>
                 </Link>
               </Button>
@@ -116,7 +116,7 @@ class Navbar extends React.Component {
 
              <div className="nav-links">
               <Button bsClass="btn-block" outline color="warning">
-                <Link to={"/buyer"}>
+                <Link to={"/allItemBuyer/" + this.props.email}>
                   <div>{this.props.name !== "" ? this.props.name : "Account"}</div>
                 </Link>
                </Button>

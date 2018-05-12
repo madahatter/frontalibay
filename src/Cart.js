@@ -61,11 +61,6 @@ class Cart extends React.Component {
             </div>
           ))}
           </div>
-   
-            <Button className="btn btn-primary">
-              <Link to="/"> Link to homepage </Link>
-            </Button>
-            
             {this.props.email ? <TakeMoney cartItems={this.props.cartItems} email={this.props.email} clearCartItems={this.props.clearCartItems}/> : null}
         </div>
     );

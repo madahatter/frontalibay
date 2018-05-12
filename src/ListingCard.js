@@ -14,6 +14,11 @@ import {
 
 
 class ListingCard extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+        }
+    }
     handleClick = () => {
     this.props.addCartItem(this.props.itemID)
     } 
@@ -39,12 +44,14 @@ class ListingCard extends React.Component {
               <CardText>Price: {this.props.price}$</CardText>
               <CardText>SellerID: {this.props.sellerID}</CardText>
               <CardText>Category: {this.props.category}</CardText>
-              <Button>
-                  <Link to="/sellerinfo/:sellerId">Seller's info</Link>
-              </Button>
-              <Button onClick={this.handleClick}>
+              {this.props.buyerPage === true ?
+              null
+            :
+            <Button onClick={this.handleClick}>
                 Add to cart
               </Button>
+            }
+              
             </CardBody>
           </Card>
 
