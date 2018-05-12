@@ -14,7 +14,6 @@ import Navbar from './Navbar.js';
 import Categories from './Categories.js';
 import ItemDetails from './ItemDetails';
 import Confirmation from './Confirmation';
-import Checkout from './Checkout';
 import './App.css';
 import CreateListing from './CreateListing.js'
 import Buyer from './Buyer'
@@ -122,10 +121,6 @@ class App extends React.Component {
     return (<Confirmation />)
   }
 
-  renderCheckout = (routerData) => {
-    return (<Checkout cartItems={this.state.cartItems} email={this.state.email}/>)
-  }
-
   renderCreateListing = (routerData) => {
     return this.state.email ? <CreateListing historyPush={routerData.history.push} email={this.state.email} /> : <Redirect to="/login" />;
   }
@@ -150,7 +145,6 @@ class App extends React.Component {
                 <Route exact path='/itemsbySeller/:sellerID' render={this.renderSellerInfo} />
                 <Route exact path='/searcheditems' render={this.renderSearchedItems} />
                 <Route exact path='/confirmation' render={this.renderConfirmationPage}/>
-                <Route exact path='/cart/checkout' render={this.renderCheckout}/>
                 <Route exact path='/itemdetails/:itemID' render={this.renderItemDetails} />
                 <Route exact path='/createlisting' render={this.renderCreateListing} />
                 <Route exact path='/allItemBuyer/:buyerID' render={this.renderBuyerPurchaseHistory}/>

@@ -11,7 +11,7 @@ class Confirmation extends React.Component {
     return (
       <div>
         <div>
-          Confirmation Page
+          Confirmation Page {Math.floor(Math.random() * 100000)}
           <div> test</div>
         </div>
       </div>
