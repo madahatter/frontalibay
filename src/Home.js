@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { UncontrolledCarousel } from 'reactstrap';
 import { Register } from './Register';
 
-
-
-
-export default class Example extends React.Component {
+export default class Home extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -26,14 +23,11 @@ export default class Example extends React.Component {
       }))
   }
 
-
   render() {
     return (
-
         <div >
           <UncontrolledCarousel className="frontCarousel" items={this.state.listings}/>
         </div>
-
     );
   }
 }

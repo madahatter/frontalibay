@@ -40,7 +40,7 @@ class ListingCard extends React.Component {
               <CardText>SellerID: {this.props.sellerID}</CardText>
               <CardText>Category: {this.props.category}</CardText>
               <Button>
-                  <Link to="/sellerinfo/:sellerId">Seller's info</Link>
+                <Link to={"/itemsbySeller/" + this.props.sellerID}>Seller's info</Link>
               </Button>
               <Button onClick={this.handleClick}>
                 Add to cart
