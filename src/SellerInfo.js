@@ -14,6 +14,7 @@ class SellerInfo extends React.Component {
   componentDidMount() {
     fetch('/itemsbySeller?sellerID=' + this.props.sellerID)
       .then(res => res.json())
+      // .then((res) => {console.log(res)})
       .then(res => { this.setState({ items: this.state.items.concat(res) }) })
   }
 
@@ -30,9 +31,6 @@ class SellerInfo extends React.Component {
               ))}
             </div>
           </div>
-          <Button>
-            <Link to="/"> Link to homepage </Link>
-          </Button>
       </div>
     );
   }

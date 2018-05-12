@@ -14,6 +14,11 @@ import {
 
 
 class ListingCard extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+        }
+    }
     handleClick = () => {
     this.props.addCartItem(this.props.itemID)
     } 
@@ -31,9 +36,11 @@ class ListingCard extends React.Component {
               <Button outline color="primary">
                 <Link to={"/itemsbySeller/" + this.props.sellerID}>Seller's info</Link>
               </Button>
-              <Button outline color="primary" onClick={this.handleClick}>
-                Add to cart
-              </Button>
+              {this.props.buyerPage === true ? null :
+                <Button outline color="primary" onClick={this.handleClick}>
+                  Add to cart
+                </Button>
+              }
             </CardBody>
           </Card>
 
