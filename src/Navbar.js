@@ -86,9 +86,6 @@ class Navbar extends React.Component {
           <Button bsClass="btn-block" outline color="success">
             <Link to={"/login"}> Login </Link>
           </Button>
-          <Button bsClass="btn-block" outline color="danger">
-            <Link to={"/register"}> Register </Link>
-          </Button>
         </div>
         
         <NavbarToggler onClick={this.toggle} className="hamburger" />
@@ -136,9 +133,6 @@ class Navbar extends React.Component {
                </Button>
                <Button bsClass="btn-block" outline color="success">
                  <Link to={"/login"}> Login </Link>
-               </Button>
-               <Button bsClass="btn-block" outline color="danger">
-                 <Link to={"/register"}> Register </Link>
                </Button>
              </div>
           </Nav>

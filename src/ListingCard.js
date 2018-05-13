@@ -19,18 +19,16 @@ class ListingCard extends React.Component {
         this.state = {
         }
     }
+    
     handleClick = () => {
     this.props.addCartItem(this.props.itemID)
     } 
+
   render() {
     return (
         <div>
-          <Card>
-            <div className="listingMainDiv">
-            <div className="imgDiv">
+          <Card body outline color="secondary">
               <img className="listingImg" src={'/' + this.props.imageName}/>
-            </div>
-            </div>
             <CardBody>
               <CardTitle><Link to={'/itemDetails/' + this.props.itemID}>{this.props.title}</Link></CardTitle>
               <CardText>Description: {this.props.blurb}</CardText>
