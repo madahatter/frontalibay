@@ -51,13 +51,14 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className="navbar navbar-light">
+      <div>
         <NavbarBrand className="img">
           <Link to="/">
             <img src="https://i.imgur.com/39QKayV.png" />
           </Link>
         </NavbarBrand>
         <NavbarToggler onClick={this.toggle} className="hamburger-sm" />
-
+        </div>
         <div className="navSearch">
           <form onSubmit={this.handleSubmit}>
             <input

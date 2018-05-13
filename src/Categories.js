@@ -8,7 +8,7 @@ class Categories extends React.Component {
   }
   render() {
     return (
-      <div className="categories">
+      <div className="categories" >
           <Col>
             <li><Button bsClass="btn-block" className="categoriesBtn" outline color="warning" onClick={() => this.handleClick('Jewelry')}>Jewelry and Watches</Button></li>
             <li><Button bsClass="btn-block" className="categoriesBtn" outline color="primary" onClick={() => this.handleClick('Phones')}>Phones and Accessories</Button></li>
