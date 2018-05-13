@@ -14,7 +14,8 @@ export default class ItemDetails extends React.Component {
       imageName: "",
       title: "",
       description: "",
-      category: ""
+      category: "",
+      price: ""
     }
   }
 
@@ -28,7 +29,8 @@ export default class ItemDetails extends React.Component {
           item: JSON.parse(res),
           title: JSON.parse(res).title,
           description: JSON.parse(res).blurb,
-          category: JSON.parse(res).category
+          category: JSON.parse(res).category,
+          price: JSON.parse(res).price
         })
       })
   }

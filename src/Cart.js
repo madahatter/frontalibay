@@ -36,6 +36,10 @@ class Cart extends React.Component {
       this.setState({cartList: resJSON});
     } )
   }
+  handleClickRemove = () => {
+    this.props.removeCartItem(this.props.itemID)
+  } 
+
   componentDidMount(){
     this.getCart()
   }
@@ -65,10 +69,12 @@ class Cart extends React.Component {
           </CardGroup>
           </div>
         <div>
-        <Button outline color="primary">
-          <Link to="/"> Link to homepage </Link>
-        </Button>
-          {this.props.email ? <TakeMoney cartItems={this.props.cartItems} email={this.props.email} clearCartItems={this.props.clearCartItems}/> : null}
+          {this.props.email && this.state.cartList.length > 0 ? <TakeMoney cartItems={this.props.cartItems} email={this.props.email} clearCartItems={this.props.clearCartItems}/> : null}
+        </div>
+        <div>
+            <Button outline color="primary" onClick={this.handleClickRemove}>
+              Remove from cart
+            </Button>
         </div>
       </div>
     );

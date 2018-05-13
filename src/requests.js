@@ -36,7 +36,7 @@ function addToCart(itemID) {
 }
 
 function removeFromCart(itemID) {
-    return fetch('/addToCart', {
+    return fetch('/removeFromCart', {
         method: 'POST',
         credentials: 'same-origin',
         body: JSON.stringify({

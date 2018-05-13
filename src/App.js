@@ -82,7 +82,7 @@ class App extends React.Component {
   }
 
   renderCart = () => {
-    return (<Cart cartItems={this.state.cartItems} email={this.state.email} clearCartItems={this.clearCartItems}/>)
+    return (<Cart cartItems={this.state.cartItems} email={this.state.email} clearCartItems={this.clearCartItems} removeCartItem={this.removeCartItem}/>)
   }
 
   renderSellerInfo = (routerData) => {

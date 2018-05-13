@@ -19,9 +19,11 @@ class ListingCard extends React.Component {
         this.state = {
         }
     }
+    
     handleClick = () => {
     this.props.addCartItem(this.props.itemID)
     } 
+
   render() {
     return (
         <div>
