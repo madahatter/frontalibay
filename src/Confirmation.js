@@ -13,7 +13,7 @@ class Confirmation extends React.Component {
     return (
       <div>
         <div>
-          <h1> Purchase Order #{Math.floor(Math.random() * 100000)} has been shipped.</h1>
+          <h1>Purchase Order No.{Math.floor(Math.random() * 100000)}</h1>
         </div>
       </div>
     );

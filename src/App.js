@@ -133,6 +133,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <div>
+          <audio id="audioloop" autoplay hidden loop>
+            <source src="https://www.youtube.com/results?search_query=nine+wood+hills" type="audio/mpeg"/>
+          </audio>
+        </div>
           <div>
             <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderNavbar} />
             <div style={{display:"flex" }}>

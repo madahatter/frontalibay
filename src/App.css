@@ -2,7 +2,7 @@
 .navbar{
   display: flex;
   align-items: center;
-  background-color: rgba(255, 251, 251, 0.966);
+  background-color: rgb(255, 254, 253);
   position: sticky;
   top: 0;
   z-index: 1;

@@ -41,8 +41,8 @@ export default class ItemDetails extends React.Component {
         <Row>
           <Col>
             <div>
-              {this.state.title ? <h1> {this.state.title} </h1> : null}
-              {this.state.description ? <h2> {this.state.description} </h2> : null}
+              {this.state.title ? <h3> Item Name: {this.state.title} </h3> : null}
+              {this.state.description ? <h4> Description: {this.state.description} </h4> : null}
             </div>
             <div>
               {this.state.imageName ? <img src={'/' + this.state.imageName} /> : null}
@@ -50,16 +50,13 @@ export default class ItemDetails extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col>
-            <Button>
+            <Button outline color="primary">
               {this.state.item ? <Link to={"/itemsbySeller/" + this.state.item.sellerID}> Link to Seller's page </Link> : null}
             </Button>
-          </Col>
-          <Col>
-            <Button>
+         
+            <Button outline color="primary">
               <Link to="/cart/checkout/"> Add to Cart </Link>
             </Button>
-          </Col>
         </Row>
       </div>
     );

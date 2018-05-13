@@ -13,13 +13,7 @@ import {
 } from "reactstrap";
 
 
-class ListingCard extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-        }
-    }
-    
+class ListingCard extends React.Component {    
     handleClick = () => {
     this.props.addCartItem(this.props.itemID)
     } 
