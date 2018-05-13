@@ -1,3 +1,4 @@
+/*NavBar CSS*/
 .navbar{
   display: flex;
   align-items: center;
@@ -62,35 +63,22 @@ a{
   margin: 2px;
 }
 
+/* Categories CSS*/
 .categoriesDiv{
   display: inline-block;
   margin-top: 10px;
 }
 
+/*Main Body CSS*/
 .mainContent{
-  max-width: 500px;
-  max-height: 300px
+  max-width: auto;
+  max-height: auto;
 }
 
+/*Login and Register CSS*/
 .loginregisterpage{
   margin: 0 auto;
   display: block;
-}
-
-.frontCarousel{
-  position: relative;
-  float: left;
-  width:  450px;
-  height: 250px;
-  background-position: 50% 50%;
-  background-repeat:   no-repeat;
-  background-size:     cover;
-}
-
-.homeBody{
-  display: inline-block;
-  margin-left: 10px;
-
 }
 .loginRegister{
   margin: 0 auto;
@@ -112,8 +100,8 @@ a{
 ListingCard CSS
 */
 .listingImg{
-  width: 284px;
-  height: 177px;
+  width: 300px;
+  height: 170px;
   flex-direction: column;
 }
 
@@ -137,8 +125,8 @@ Categories CSS
   margin: 5px;
 }
 .cardImg{
-  width: 284px;
-  height: 177px;
+  width: 300px;
+  height: 170px;
   flex-direction: column;
 }
 .cartBody{
@@ -149,6 +137,26 @@ Categories CSS
   margin-left:450px;
   margin-right:200px;
   margin-bottom: 200px;
+}
+
+.buyerH1{
+  margin-left: 350px;
+}
+.sellerH1{
+  margin-left: 400px;
+}
+
+/*Carousel CSS*/
+.Carousel{
+  margin-left: 110px;
+}
+
+/*CreateListing CSS*/
+.sellerInput{
+  border: 1px solid black
+}
+.inputs{
+  width:100%
 }
 
 /* 
