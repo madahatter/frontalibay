@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ListingCard from "./ListingCard";
 import { Link } from "react-router-dom";
-import { Row, Col, Button } from "reactstrap";
+import {CardGroup} from "reactstrap";
 
 class Buyer extends React.Component {
   constructor() {
@@ -18,18 +18,14 @@ class Buyer extends React.Component {
   }
 
   render() {
-    // console.log(this.props)
-    console.log(this.state.items)
     return (
-      <div className="mainContent">
-          <div>
-            <h1>History of all Items purchased</h1>
-            <div>
-              {this.state.items.map(item => (
-                <ListingCard {...item} buyerPage={true}/>
-              ))}
-            </div>
-          </div>
+      <div>
+        <div className="buyerH1">
+          <h1>Items purchased</h1>
+        </div>
+        <CardGroup className="card">
+          {this.state.items.map(item => (<ListingCard {...item} buyerPage={true}/>))}
+        </CardGroup>
       </div>
     );
   }

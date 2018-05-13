@@ -140,17 +140,19 @@ class App extends React.Component {
                 <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderCategories} />
               </div>
               <div className="mainContent">
-                <Route exact path='/' render={this.renderHome} />
                 <Route exact path='/confirmation' render={this.renderConfirmationPage}/>
                 <Route exact path='/itemdetails/:itemID' render={this.renderItemDetails} />
+              </div>
+              <div>
+                <Route exact path='/' render={this.renderHome} />
                 <Route exact path='/createlisting' render={this.renderCreateListing} />
-                <Route exact path='/allItemBuyer/:buyerID' render={this.renderBuyerPurchaseHistory}/>
               </div>
               <div className="cartBody">
               <Route exact path='/searcheditems' render={this.renderSearchedItems} />
               <Route exact path='/cart' render={this.renderCart} />
               <Route exact path='/cart/checkout' render={this.renderCheckout}/>
               <Route exact path='/itemsbySeller/:sellerID' render={this.renderSellerInfo} />
+              <Route exact path='/allItemBuyer/:buyerID' render={this.renderBuyerPurchaseHistory}/>
               </div>
               <div className="loginregisterpage">
                 <Route exact path='/login' render={this.renderLogin} />

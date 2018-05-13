@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom'
+import {NavbarBrand} from 'reactstrap'
 
 class Confirmation extends React.Component {
     constructor() {
@@ -11,8 +13,7 @@ class Confirmation extends React.Component {
     return (
       <div>
         <div>
-          Confirmation Page {Math.floor(Math.random() * 100000)}
-          <div> test</div>
+          <h1> Purchase Order #{Math.floor(Math.random() * 100000)} has been shipped.</h1>
         </div>
       </div>
     );
