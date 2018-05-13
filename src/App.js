@@ -42,10 +42,11 @@ class App extends React.Component {
 
   }
   setEmail = (email, name) => {
-    this.setState({ email, name })
+    this.setState({ email, name })  
   }
 
   addCartItem = (itemID) => {
+    console.log(itemID)
     addToCart(itemID)
       .then(res => {
         return this.setState({
@@ -95,7 +96,7 @@ class App extends React.Component {
   }
 
   renderNavbar = () => {
-    return <Navbar email={this.state.email} name={this.state.name} search={this.search} cartItems={this.state.cartItems.length} />;
+    return <Navbar email={this.state.email} name={this.state.name} search={this.search} cartItems={this.state.cartItems.length} setEmail={this.setEmail} />;
   }
 
   renderCategories = (routerData) => {
@@ -140,7 +141,7 @@ class App extends React.Component {
         </div>
           <div>
             <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderNavbar} />
-            <div style={{display:"flex" }}>
+            <div style={{display: "flex"}}>
               <div className="categoriesDiv">
                 <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderCategories} />
               </div>

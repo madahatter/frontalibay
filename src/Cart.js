@@ -19,8 +19,8 @@ import ListingCard from './ListingCard';
 import TakeMoney from './TakeMoney.js';
 
 class Cart extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       cartList: [],
     };
@@ -36,13 +36,31 @@ class Cart extends React.Component {
       this.setState({cartList: resJSON});
     } )
   }
-  componentDidMount(){
+ 
+  handleClickRemove = (itemID) => {
+    this.props.removeCartItem(itemID)
+    fetch('/itemCart', {
+      credentials: 'same-origin'
+    })
+      .then((res) => res.json())
+      .then(resJSON => {
+        //console.log(resJSON)
+        this.setState({ cartList: resJSON });
+      })
+  }
+  // componentWillReceiveProps = (props)=> {
+  //   this.setState({cartList: this.props.cartItems})
+  // }
+
+  componentDidMount() {
     this.getCart()
   }
 
   render() {
+    console.log("item ", this.props.itemID)
     return (
       <div>
+        <div>
         <CardGroup className="card">
           {this.state.cartList.map( det => (
             <div>
@@ -57,13 +75,19 @@ class Cart extends React.Component {
                     <Button outline color="primary">
                       <Link to={"/itemsbySeller/" + det.sellerID}>Seller's info</Link>
                     </Button>
+                    <Button outline color="primary" onClick={()=>this.handleClickRemove(det.itemID)}>
+                      Remove from cart
+                    </Button>
                   </CardBody>
                   </Card>
             </div>
           ))}
           </CardGroup>
-        <div className="cartPay">
-          {this.props.email ? <TakeMoney cartItems={this.props.cartItems} email={this.props.email} clearCartItems={this.props.clearCartItems}/> : null}
+        </div>
+        <div>
+          <div className="cartPay">
+            {this.props.email && this.state.cartList.length > 0 ? <TakeMoney cartItems={this.props.cartItems} email={this.props.email} clearCartItems={this.props.clearCartItems} /> : null}
+          </div>
         </div>
       </div>
     );
