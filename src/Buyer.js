@@ -23,7 +23,7 @@ class Buyer extends React.Component {
         <div className="buyerH1">
           <h1>Items purchased</h1>
         </div>
-        <CardGroup className="card">
+        <CardGroup className="listingCard">
           {this.state.items.map(item => (<ListingCard {...item} buyerPage={true}/>))}
         </CardGroup>
       </div>

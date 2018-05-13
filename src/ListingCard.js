@@ -23,9 +23,7 @@ class ListingCard extends React.Component {
         <div>
           <Card>
             <div className="listingMainDiv">
-            <div className="imgDiv">
               <img className="listingImg" src={'/' + this.props.imageName}/>
-            </div>
             </div>
             <CardBody>
               <CardTitle><Link to={'/itemDetails/' + this.props.itemID}>{this.props.title}</Link></CardTitle>

@@ -24,7 +24,7 @@ class SellerInfo extends React.Component {
         <div className="sellerH1">
           <h1>Seller's items</h1>
         </div>
-        <CardGroup className="card">
+        <CardGroup className="listingCard">
         {this.state.items.map(item => (<ListingCard {...item} addCartItem={this.props.addCartItem} />))}
         </CardGroup>
       </div>
