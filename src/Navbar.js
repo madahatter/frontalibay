@@ -48,6 +48,19 @@ class Navbar extends React.Component {
     }
   }
 
+  isLogout = () => {
+    if(this.props.name === "") {
+      return <Link to={"/login"}> Login </Link>
+     } 
+     else{
+       
+      return <Link to={"/"}>
+       Logout
+   </Link>
+   this.props.setEmail("","")
+     }
+  }
+
   render() {
     return (
       <div className="navbar navbar-light">
@@ -85,7 +98,7 @@ class Navbar extends React.Component {
             <Link to={"/createlisting"}> Sell Item </Link>
           </Button>
           <Button bsClass="btn-block" outline color="success">
-            <Link to={"/login"}> Login </Link>
+          <div> {this.isLogout()}</div>
           </Button>
         </div>
         
@@ -111,7 +124,7 @@ class Navbar extends React.Component {
             </NavItem>
             <NavItem>
               <Button bsClass="btn-block" style={{ width: "100%", margin: "2px" }} outline color="success">
-                <Link to={"/login"}> Login </Link>
+              <div> {this.isLogout()}</div>
               </Button>
             </NavItem>
             <NavItem>
@@ -133,7 +146,7 @@ class Navbar extends React.Component {
                  <Link to={"/createlisting"}> Sell Item </Link>
                </Button>
                <Button bsClass="btn-block" outline color="success">
-                 <Link to={"/login"}> Login </Link>
+               <div> {this.isLogout()}</div>
                </Button>
              </div>
           </Nav>
