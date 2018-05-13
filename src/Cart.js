@@ -61,7 +61,7 @@ class Cart extends React.Component {
     return (
       <div>
         <div>
-        <CardGroup className="card">
+        <CardGroup className="listingCard">
           {this.state.cartList.map( det => (
             <div>
                 <Card body outline color="secondary">

@@ -134,11 +134,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <audio id="audioloop" autoplay hidden loop>
-            <source src="https://www.youtube.com/results?search_query=nine+wood+hills" type="audio/mpeg"/>
-          </audio>
-        </div>
           <div>
             <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderNavbar} />
             <div style={{display: "flex"}}>
@@ -154,11 +149,11 @@ class App extends React.Component {
                 <Route exact path='/createlisting' render={this.renderCreateListing} />
               </div>
               <div className="cartBody">
-              <Route exact path='/searcheditems' render={this.renderSearchedItems} />
-              <Route exact path='/cart' render={this.renderCart} />
-              <Route exact path='/cart/checkout' render={this.renderCheckout}/>
-              <Route exact path='/itemsbySeller/:sellerID' render={this.renderSellerInfo} />
-              <Route exact path='/allItemBuyer/:buyerID' render={this.renderBuyerPurchaseHistory}/>
+                <Route exact path='/searcheditems' render={this.renderSearchedItems} />
+                <Route exact path='/cart' render={this.renderCart} />
+                <Route exact path='/cart/checkout' render={this.renderCheckout}/>
+                <Route exact path='/itemsbySeller/:sellerID' render={this.renderSellerInfo} />
+                <Route exact path='/allItemBuyer/:buyerID' render={this.renderBuyerPurchaseHistory}/>
               </div>
               <div className="loginregisterpage">
                 <Route exact path='/login' render={this.renderLogin} />
