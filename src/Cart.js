@@ -43,7 +43,6 @@ class Cart extends React.Component {
   render() {
     return (
       <div>
-        <div>
         <CardGroup className="card">
           {this.state.cartList.map( det => (
             <div>
@@ -63,11 +62,8 @@ class Cart extends React.Component {
             </div>
           ))}
           </CardGroup>
-          </div>
-        <div>
-        <Button outline color="primary">
-          <Link to="/"> Link to homepage </Link>
-        </Button>
+          
+        <div className="cartPay">
           {this.props.email ? <TakeMoney cartItems={this.props.cartItems} email={this.props.email} clearCartItems={this.props.clearCartItems}/> : null}
         </div>
       </div>

@@ -134,7 +134,7 @@ Categories CSS
 /* Cart CSS*/
 .card{
   display: flex;
-  margin: 10px;
+  margin: 5px;
 }
 .cardImg{
   width: 284px;
@@ -144,6 +144,11 @@ Categories CSS
 .cartBody{
   display: block;
   position: center;
+}
+.cartPay{
+  margin-left:450px;
+  margin-right:200px;
+  margin-bottom: 200px;
 }
 
 /* 
