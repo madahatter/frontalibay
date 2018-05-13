@@ -46,6 +46,7 @@ class App extends React.Component {
   }
 
   addCartItem = (itemID) => {
+    console.log(itemID)
     addToCart(itemID)
       .then(res => {
         return this.setState({
