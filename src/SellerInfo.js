@@ -21,21 +21,12 @@ class SellerInfo extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <h1>List of seller's items</h1>
+        <div className="sellerH1">
+          <h1>Seller's items</h1>
         </div>
         <CardGroup className="card">
         {this.state.items.map(item => (<ListingCard {...item} addCartItem={this.props.addCartItem} />))}
         </CardGroup>
-
-          {/* <div>
-            <h1>List of seller's items</h1>
-            <div>
-              {this.state.items.map(item => (
-                <ListingCard {...item} addCartItem={this.props.addCartItem} />
-              ))}
-            </div>
-          </div> */}
       </div>
     );
   }

@@ -37,10 +37,10 @@ class Login extends React.Component {
       return (
         <div>
           <NavbarBrand className="img">
-          <Link to="/">
-            <img src="https://i.imgur.com/39QKayV.png" />
-          </Link>
-        </NavbarBrand>
+            <Link to="/">
+              <img src="https://i.imgur.com/39QKayV.png" />
+            </Link>
+          </NavbarBrand>
           <form onSubmit={this.handleSubmit}>
             <div>
               <input className="loginRegister" type="text" value={this.state.emailInput} placeholder="Email" onChange={this.handleEmail}/>
@@ -49,9 +49,6 @@ class Login extends React.Component {
             <div className="loginRegister">
               <input className="loginRegister" type="submit" />
             </div>
-            <Button className="loginRegister" outline color="primary">
-              <Link to={"/"}> Link to homepage </Link>
-            </Button>
           </form>
         </div>
       );

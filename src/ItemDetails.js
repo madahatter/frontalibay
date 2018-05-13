@@ -37,13 +37,11 @@ export default class ItemDetails extends React.Component {
     return (
       <div>
         <Row>
-          <Col xs={6} md={6}>
+          <Col>
             <div>
               {this.state.title ? <h1> {this.state.title} </h1> : null}
               {this.state.description ? <h2> {this.state.description} </h2> : null}
             </div>
-
-
             <div>
               {this.state.imageName ? <img src={'/' + this.state.imageName} /> : null}
             </div>

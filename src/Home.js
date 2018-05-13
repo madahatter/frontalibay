@@ -26,7 +26,7 @@ export default class Home extends React.Component {
   render() {
     return (
         <div>
-          <UncontrolledCarousel className="frontCarousel" items={this.state.listings}/>
+          <UncontrolledCarousel className="Carousel" items={this.state.listings}/>
         </div>
     );
   }
