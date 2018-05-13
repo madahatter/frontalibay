@@ -135,7 +135,7 @@ class App extends React.Component {
       <div>
           <div>
             <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderNavbar} />
-            <div style={{display:"flex" }}>
+            <div style={{display:"flex"}}>
               <div className="categoriesDiv">
                 <Route exact path={/^\/(?!(login|register)).*$/} render={this.renderCategories} />
               </div>
