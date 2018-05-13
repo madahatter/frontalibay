@@ -9,6 +9,7 @@ class CreateListing extends React.Component {
             titleInput: "",
             descriptionInput: "",
             category: "",
+            price: ""
         };
     }
 
@@ -21,6 +22,10 @@ class CreateListing extends React.Component {
     handleDescChange = (event) => {
         this.setState({ descriptionInput: event.target.value })
     }
+    handlePrice = (event) => {
+        this.setState({ price: event.target.value })
+    }
+
     handleSubmit = (event) => {
         event.preventDefault();
         fetch('/createListing', {
@@ -30,6 +35,7 @@ class CreateListing extends React.Component {
                 description: this.state.descriptionInput,
                 img: this.state.img,
                 category: this.state.category,
+                itemPrice: this.state.price,
                 email: this.props.email
             })
         })
