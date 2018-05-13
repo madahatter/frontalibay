@@ -19,8 +19,8 @@ import ListingCard from './ListingCard';
 import TakeMoney from './TakeMoney.js';
 
 class Cart extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       cartList: [],
     };
@@ -32,19 +32,31 @@ class Cart extends React.Component {
     })
       .then((res) => res.json())
       .then(resJSON => {
-        console.log(resJSON)
+        //console.log(resJSON)
         this.setState({ cartList: resJSON });
       })
   }
-  handleClickRemove = () => {
-    this.props.removeCartItem(this.props.itemID)
+  handleClickRemove = (itemID) => {
+    this.props.removeCartItem(itemID)
+    fetch('/itemCart', {
+      credentials: 'same-origin'
+    })
+      .then((res) => res.json())
+      .then(resJSON => {
+        //console.log(resJSON)
+        this.setState({ cartList: resJSON });
+      })
   }
+  // componentWillReceiveProps = (props)=> {
+  //   this.setState({cartList: this.props.cartItems})
+  // }
 
   componentDidMount() {
     this.getCart()
   }
 
   render() {
+    console.log("item ", this.props.itemID)
     return (
       <div>
         <div>
@@ -54,13 +66,15 @@ class Cart extends React.Component {
                 <Card body outline color="secondary">
                   <img className="cardImg" src={'/' + det.imageName} />
                   <CardBody>
-                    <CardTitle><Link to={'/itemDetails/' + this.props.itemID}>{this.props.title}</Link></CardTitle>
                     <CardText>Description: {det.blurb}</CardText>
                     <CardText>Price: {det.price}</CardText>
                     <CardText>Seller: {det.sellerID}</CardText>
                     <CardText>Category: {det.category}</CardText>
                     <Button outline color="primary">
                       <Link to={"/itemsbySeller/" + det.sellerID}>Seller's info</Link>
+                    </Button>
+                    <Button outline color="primary" onClick={()=>this.handleClickRemove(det.itemID)}>
+                      Remove from cart
                     </Button>
                   </CardBody>
                 </Card>
@@ -71,11 +85,6 @@ class Cart extends React.Component {
         <div>
           <div className="cartPay">
             {this.props.email && this.state.cartList.length > 0 ? <TakeMoney cartItems={this.props.cartItems} email={this.props.email} clearCartItems={this.props.clearCartItems} /> : null}
-          </div>
-          <div>
-            <Button outline color="primary" onClick={this.handleClickRemove}>
-              Remove from cart
-            </Button>
           </div>
         </div>
       </div>
