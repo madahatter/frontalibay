@@ -61,7 +61,7 @@ function search(searchTerm, opts = {}) {
         .then(res => res.json())
 }
 
-function createListing(email, title, description, image, category) {
+function createListing(email, title, description, image, category, price) {
     return fetch('/createListing', {
         method: 'POST',
         body: JSON.stringify({
@@ -69,7 +69,8 @@ function createListing(email, title, description, image, category) {
             title,
             description,
             image,
-            category
+            category,
+            price
         })
     })
         .then(res => res.json())

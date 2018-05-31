@@ -138,6 +138,17 @@ Categories CSS
   margin-right:200px;
   margin-bottom: 200px;
 }
+.itemdescription{
+  width: 350px;
+  height: 170px
+}
+.listingcrd{
+  width: 275px;
+  height: 220px
+}
+.listingTitle{
+  width: 275px;
+}
 
 .buyerH1{
   margin-left: 350px;

@@ -66,7 +66,7 @@ class CreateListing extends React.Component {
             <CardText><h3>Sell an item</h3></CardText>
             <CardText>Title: <input className="inputs" type="text" value={this.state.titleInput} onChange={this.handleTitleChange}/></CardText>
             <CardText>Description: <input type="text" className="inputs" value={this.state.descriptionInput} onChange={this.handleDescChange}/></CardText>
-            <CardText>Price: <input className="inputs" type="number" step="1.00" min="0"/> </CardText>
+            <CardText>Price: <input className="inputs" type="number" onChange={this.handlePrice}/> </CardText>
             <CardText>Category: <select name="Categories" onChange={this.handleCatChange}>
                 <option value="">--choose a category--</option>
                 <option value="Phones">Phones and Accessories</option>
@@ -80,7 +80,7 @@ class CreateListing extends React.Component {
           </CardBody>
         </Card>
         </form>
-        {this.state.img ? <img src={"/"+this.state.img} /> : null}
+        {this.state.img ? <img className= "itemdescription" src={"/"+this.state.img} /> : null}
       </div>
     )
   }

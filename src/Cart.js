@@ -68,7 +68,7 @@ class Cart extends React.Component {
                   <img className="cardImg" src={'/' + det.imageName}/>
                   <CardBody> 
                     <CardTitle><Link to={'/itemDetails/' + this.props.itemID}>{this.props.title}</Link></CardTitle>
-                    <CardText>Description: {det.blurb}</CardText>
+                    <CardText className= "listingcrd">Description: {det.blurb}</CardText>
                     <CardText>Price: {det.price}</CardText>
                     <CardText>Seller: {det.sellerID}</CardText>
                     <CardText>Category: {det.category}</CardText>

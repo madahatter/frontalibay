@@ -53,11 +53,10 @@ class Navbar extends React.Component {
       return <Link to={"/login"}> Login </Link>
      } 
      else{
-       
-      return <Link to={"/"}>
+      return <Link to={"/"} onClick={()=> this.props.setEmail("","")}>
        Logout
    </Link>
-   this.props.setEmail("","")
+   
      }
   }
 

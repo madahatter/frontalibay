@@ -41,11 +41,11 @@ export default class ItemDetails extends React.Component {
         <Row>
           <Col>
             <div>
-              {this.state.title ? <h3> Item Name: {this.state.title} </h3> : null}
-              {this.state.description ? <h4> Description: {this.state.description} </h4> : null}
+              {this.state.title ? <h5> Item Name: {this.state.title} </h5> : null}
+              {this.state.description ? <h6 className= "listingcrd"> Description: {this.state.description} </h6> : null}
             </div>
             <div>
-              {this.state.imageName ? <img src={'/' + this.state.imageName} /> : null}
+              {this.state.imageName ? <img className= "itemdescription" src={'/' + this.state.imageName} /> : null}
             </div>
           </Col>
         </Row>
